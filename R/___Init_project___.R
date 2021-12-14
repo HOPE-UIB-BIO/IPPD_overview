@@ -38,7 +38,6 @@ package_list <-
   c(
     "assertthat",
     "devtools",
-    "fossilpol",
     "here",      
     "renv",       
     "roxygen2",   

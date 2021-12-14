@@ -25,17 +25,17 @@ if(!exists("update_repo_packages")){
 
 if(update_repo_packages == TRUE){
   
-  # install fossilpol from github
-  if (!exists("already_installed_fossilpol")){
-    already_installed_fossilpol <- FALSE
-  }
-  
-  if(already_installed_fossilpol == FALSE){
-    devtools::install_github("HOPE-UIB-BIO/fossilpol",
-                             quiet = FALSE,
-                             upgrade = FALSE)
-    already_installed_fossilpol <- TRUE
-  }
+  # # install fossilpol from github
+  # if (!exists("already_installed_fossilpol")){
+  #   already_installed_fossilpol <- FALSE
+  # }
+  # 
+  # if(already_installed_fossilpol == FALSE){
+  #   devtools::install_github("HOPE-UIB-BIO/fossilpol",
+  #                            quiet = FALSE,
+  #                            upgrade = FALSE)
+  #   already_installed_fossilpol <- TRUE
+  # }
   
   if (!exists("already_synch")){
     already_synch <- FALSE
@@ -57,7 +57,7 @@ package_list <-
   c(
     "assertthat",
     "devtools",
-    "fossilpol",
+    #"fossilpol",
     "here",      
     "renv",       
     "roxygen2",   
