@@ -25,17 +25,17 @@ if(!exists("update_repo_packages")){
 
 if(update_repo_packages == TRUE){
   
-  # install fossilpol from github
-  if (!exists("already_installed_fossilpol")){
-    already_installed_fossilpol <- FALSE
-  }
-  
-  if(already_installed_fossilpol == FALSE){
-    devtools::install_github("HOPE-UIB-BIO/fossilpol",
-                             quiet = FALSE,
-                             upgrade = FALSE)
-    already_installed_fossilpol <- TRUE
-  }
+  # # install fossilpol from github
+  # if (!exists("already_installed_fossilpol")){
+  #   already_installed_fossilpol <- FALSE
+  # }
+  # 
+  # if(already_installed_fossilpol == FALSE){
+  #   devtools::install_github("HOPE-UIB-BIO/fossilpol",
+  #                            quiet = FALSE,
+  #                            upgrade = FALSE)
+  #   already_installed_fossilpol <- TRUE
+  # }
   
   if (!exists("already_synch")){
     already_synch <- FALSE
@@ -57,12 +57,14 @@ package_list <-
   c(
     "assertthat",
     "devtools",
-    "fossilpol",
-    "here",      
+    "ggpubr",
+    "here",
+    "maps",
+    "RColorBrewer",
     "renv",       
     "roxygen2",   
     "tidyverse",  
-    "usethis"   
+    "usethis"    
   )
 
 # load all packages
@@ -106,28 +108,51 @@ sapply(
 # 5. Define variables -----
 #----------------------------------------------------------#
 
+# geographical boudaries
+long_min <- 90
+long_max <- 180
+lat_min <- -50
+lat_max <- 25
 
 #----------------------------------------------------------#
 # 6. Graphical options -----
 #----------------------------------------------------------#
 
-## examples
-#set ggplot output
-ggplot2::theme_set(
-  ggplot2::theme_classic())
-
 # define general
 text_size = 10
 line_size = 0.1
+point_size = 3
 
 # define output sizes
-image_width <- 16
-image_height <- 12
+image_width <- 45
+image_height <- 35
 image_units <- "cm"
+image_dpi <- 600
+
 
 # define pallets
 
 # define common color
+gray_light <- "gray80"
+gray_dark <- "gray30"
+accend_blue <-  "#00AFBB"
+accend_red <- "#FF0033"
+
+map_color_fill <- "gray90"
+map_color_border <- NA
+
+
+#set ggplot output
+ggplot2::theme_set(
+  ggplot2::theme_classic()+
+    ggplot2::theme(
+      text = ggplot2::element_text(
+        size = text_size,
+        colour = gray_dark),
+      line = ggplot2::element_line(
+        size = line_size,
+        colour = gray_dark)))
+
 
 #----------------------------------------------------------#
 # 7. Save current config setting -----

@@ -38,8 +38,10 @@ package_list <-
   c(
     "assertthat",
     "devtools",
-    "fossilpol",
-    "here",      
+    "ggpubr",
+    "here",
+    "maps",
+    "RColorBrewer",
     "renv",       
     "roxygen2",   
     "tidyverse",  
