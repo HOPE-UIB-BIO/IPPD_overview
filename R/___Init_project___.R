@@ -4,9 +4,9 @@
 #                     Project name
 #
 #                     Project setup
-#                 
 #
-#   O. Mottl, S. Flantua, K. Bhatta, V. Felde, A. Seddon 
+#
+#   O. Mottl, S. Flantua, K. Bhatta, V. Felde, A. Seddon
 #                         2021
 #
 #----------------------------------------------------------#
@@ -16,84 +16,108 @@
 
 
 #----------------------------------------------------------#
-# Step 1: Install 'renv' package -----
+# Step 0: Install {renv} for package management -----
 #----------------------------------------------------------#
 
-utils::install.packages("renv")
+if (
+  "renv" %in% utils::installed.packages()
+) {
+  library(renv)
+} else {
+  # install package
+  utils::install.packages("renv")
 
-
-#----------------------------------------------------------#
-# Step 2: Deactivate 'renv' package -----
-#----------------------------------------------------------#
-
-# deactivate to make sure that packages are updated on the machine
-renv::deactivate()
-
-
-#----------------------------------------------------------#
-# Step 3: Create a list of packages
-#----------------------------------------------------------#
-
-package_list <- 
-  c(
-    "assertthat",
-    "devtools",
-    "ggpubr",
-    "here",
-    "maps",
-    "RColorBrewer",
-    "renv",       
-    "roxygen2",   
-    "tidyverse",  
-    "usethis"   
-  )
+  # load the package
+  library(renv)
+}
 
 
 #----------------------------------------------------------#
-# Step 4: Install packages to the machine
+# Step 1: Deactivate 'renv' project -----
 #----------------------------------------------------------#
 
-sapply(package_list, utils::install.packages, character.only = TRUE)
-
-
-#----------------------------------------------------------#
-# Step 5: Activate 'renv' project
-#----------------------------------------------------------#
+# NOTE: The R may ask the User to restart the session (R).
+#   After that, continue with the next step
 
 renv::activate()
 
 
 #----------------------------------------------------------#
-# Step 6: Install packages to the project
+# Step 2: Install {here} for file navigation -----
 #----------------------------------------------------------#
 
-sapply(package_list, utils::install.packages, character.only = TRUE)
+if (
+  "here" %in% utils::installed.packages()
+) {
+  library(here)
+} else {
+  # install package
+  utils::install.packages("here")
+
+  # load the package
+  library(here)
+}
 
 
 #----------------------------------------------------------#
-# Step 7: Synchronize package versions with the project 
+# Step 3: Synchronize package versions with the project -----
 #----------------------------------------------------------#
 
-library(here)
-renv::snapshot(lockfile =  "renv/library_list.lock")
-renv::restore(lockfile = here::here( "renv/library_list.lock"))
+# If there is no lock file present make a new snapshot
+if (
+  isTRUE("library_list.lock" %in% list.files(here::here("renv")))
+) {
+  cat("The project already has a lockfile. Restoring packages", "\n")
+
+  renv::restore(
+    lockfile = here::here("renv/library_list.lock")
+  )
+
+  cat("Set up completed. You can continute to run the project", "\n")
+
+  cat("Do NOT run the rest of this script", "\n")
+} else {
+  cat("The project seems to be new (no lockfile)", "\n")
+
+  cat("Continue with this script", "\n")
+}
 
 
 #----------------------------------------------------------#
-# Step 8: GitHub hook
+# Step 4: Install packages to the project -----
 #----------------------------------------------------------#
 
-# Prevent commiting to the Main
-usethis::use_git_hook(
-  hook = "pre-commit",
-  script = '#!/bin/sh
-  branch="$(git rev-parse --abbrev-ref HEAD)"
-  if [ "$branch" = "main" ]; then
-  echo "You cannot commit directly to main branch. Please make a new branch"
-  exit 1
-  fi'
+# install all packages in the lst from CRAN
+sapply(
+  c(
+    "assertthat",
+    "cowplot",
+    "ggpubr",
+    "here",
+    "httpgd",
+    "janitor",
+    "jsonlite",
+    "knitr",
+    "languageserver",
+    "maps",
+    "RColorBrewer",
+    "renv",
+    "remotes",
+    "roxygen2",
+    "tidyverse",
+    "usethis"
+  ),
+  utils::install.packages,
+  character.only = TRUE
 )
 
+
 #----------------------------------------------------------#
-# Step 9: Run the project 
+# Step 5: Save versions of packages -----
 #----------------------------------------------------------#
+
+renv::snapshot(
+  lockfile = here::here("renv/library_list.lock")
+)
+
+cat("Set up completed. You can continute to run the project", "\n")
