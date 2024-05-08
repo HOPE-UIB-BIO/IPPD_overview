@@ -1,13 +1,13 @@
 #----------------------------------------------------------#
 #
 #
-#                     Project name
+#                     IPPD overview
 #
-#                     Project setup
+#                       Config file
 #
 #
-#   O. Mottl, S. Flantua, K. Bhatta, V. Felde, A. Seddon
-#                         2021
+#                      Ondrej Mottl
+#                         2024
 #
 #----------------------------------------------------------#
 

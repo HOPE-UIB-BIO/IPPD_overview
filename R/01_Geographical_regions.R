@@ -1,17 +1,17 @@
 #----------------------------------------------------------#
 #
 #
-#                   HOPE master repo
+#                     IPPD overview
 #
-#                         Figures
+#              Spatial distribution of regions
 #
 #
-#   O. Mottl, S. Flantua, K. Bhatta, V. Felde, A. Seddon
-#                         2021
+#                       O. Mottl
+#                         2024
 #
 #----------------------------------------------------------#
 
-# Create output figures
+# Create summary of spatial distribution of regions
 
 #----------------------------------------------------------#
 # 1. Set up -----
@@ -44,7 +44,7 @@ dplyr::glimpse(ippd_data_public)
 
 p_region <-
   plot_data_distribution_spatial(
-    data = data_for_figures,
+    data = ippd_data_public,
     var = "region",
     coord_long = c(long_min, long_max), # [Config]
     coord_lat = c(lat_min, lat_max), # [Config]

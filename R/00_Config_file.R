@@ -1,13 +1,13 @@
 #----------------------------------------------------------#
 #
 #
-#                       Project name
+#                     IPPD overview
 #
 #                       Config file
 #
 #
-#                         Names
-#                         Year
+#                      Ondrej Mottl
+#                         2024
 #
 #----------------------------------------------------------#
 # Configuration script with the variables that should be consistent throughout
