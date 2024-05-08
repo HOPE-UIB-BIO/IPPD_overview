@@ -95,6 +95,7 @@ sapply(
     "ggpubr",
     "here",
     "httpgd",
+    "httr2",
     "janitor",
     "jsonlite",
     "knitr",

@@ -55,6 +55,7 @@ package_list <-
     "ggpubr",
     "here",
     "httpgd",
+    "httr2",
     "janitor",
     "jsonlite",
     "knitr",
