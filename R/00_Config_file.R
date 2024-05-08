@@ -110,22 +110,22 @@ sapply(
 long_min <- 90
 long_max <- 180
 lat_min <- -50
-lat_max <- 25
+lat_max <- 10
 
 #----------------------------------------------------------#
 # 5. Graphical options -----
 #----------------------------------------------------------#
 
 # define general
-text_size <- 10
+text_size <- 12
 line_size <- 0.1
-point_size <- 3
+point_size <- 4
 
 # define output sizes
-image_width <- 45
-image_height <- 35
+image_width <- 18
+image_height <- 18
 image_units <- "cm"
-image_dpi <- 600
+image_dpi <- 300
 
 
 # define pallets
@@ -142,7 +142,7 @@ map_color_border <- NA
 
 # set ggplot output
 ggplot2::theme_set(
-  ggplot2::theme_classic() +
+  ggplot2::theme_bw() +
     ggplot2::theme(
       text = ggplot2::element_text(
         size = text_size,
@@ -151,6 +151,27 @@ ggplot2::theme_set(
       line = ggplot2::element_line(
         size = line_size,
         colour = gray_dark
+      ),
+      axis.title = ggplot2::element_text(
+        size = text_size
+      ),
+      axis.text = ggplot2::element_text(
+        size = text_size
+      ),
+      legend.text = ggplot2::element_text(
+        size = text_size
+      ),
+      legend.title = ggplot2::element_text(
+        size = text_size
+      ),
+      plot.title = ggplot2::element_text(
+        size = text_size
+      ),
+      plot.subtitle = ggplot2::element_text(
+        size = text_size
+      ),
+      plot.caption = ggplot2::element_text(
+        size = text_size
       )
     )
 )
