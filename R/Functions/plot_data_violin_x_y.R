@@ -58,7 +58,7 @@ plot_data_violin_x_y <- function(
       color = default_color,
       linewidth = line_size,
       alpha = line_alpha_box,
-      width = 0.2,
+      width = 0.15,
       outlier.shape = NA
     ) +
     ggplot2::scale_color_manual(values = custom_pallete) +

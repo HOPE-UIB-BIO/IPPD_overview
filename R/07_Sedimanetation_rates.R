@@ -112,6 +112,7 @@ p_sedimentation_violin <-
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     default_color = gray_dark, # [Config]
+    default_box_fill = gray_light, # [Config]
     legend_position = "none",
     caption_label = FALSE
   ) +
