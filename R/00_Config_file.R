@@ -150,7 +150,7 @@ ggplot2::theme_set(
         colour = gray_dark
       ),
       line = ggplot2::element_line(
-        size = line_size,
+        linewidth = line_size,
         colour = gray_dark
       ),
       axis.title = ggplot2::element_text(
