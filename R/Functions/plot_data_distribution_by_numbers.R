@@ -4,12 +4,18 @@ plot_data_distribution_by_numbers <- function(
     bin_size = 5,
     point_alpha_outer = 0.3,
     legend_n_col = 3,
+    limits = c(-Inf, Inf),
+    start_from = c(0, "min"),
     ...) {
+  start_from <- match.arg(start_from)
+ 
   vec_breaks <-
     get_binned(
       data_source = data,
       var = var,
       bin_size = bin_size,
+      limits = limits,
+      start_from = start_from,
       mode = "breaks"
     )
 
@@ -18,6 +24,8 @@ plot_data_distribution_by_numbers <- function(
       data_source = data,
       var = var,
       bin_size = bin_size,
+      limits = limits,
+      start_from = start_from,
       mode = "data"
     )
 
