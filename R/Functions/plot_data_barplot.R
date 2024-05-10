@@ -61,7 +61,6 @@ plot_data_barplot <- function(
       nudge_y = 0
     ) +
     ggplot2::scale_color_manual(values = custom_pallete) +
-    ggplot2::scale_color_manual(values = custom_pallete) +
     ggplot2::scale_fill_manual(values = custom_pallete) +
     ggplot2::theme(
       text = ggplot2::element_text(size = text_size),
@@ -72,8 +71,8 @@ plot_data_barplot <- function(
       legend.position = legend_position
     ) +
     ggplot2::labs(
-      x = "Longitude",
-      y = "Latitude"
+      y = "Number of records",
+      x = var
     ) +
     ggplot2::guides(
       fill = ggplot2::guide_legend(

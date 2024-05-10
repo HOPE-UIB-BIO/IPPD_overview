@@ -148,6 +148,9 @@ p_dep_env_b <-
     bar_default_color = gray_dark, # [Config]
     legend_position = "none",
     caption_label = FALSE
+  ) +
+  ggplot2::theme(
+    axis.title.x = ggplot2::element_blank()
   )
 
 p_dep_env <-
