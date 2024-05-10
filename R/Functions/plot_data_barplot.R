@@ -91,7 +91,7 @@ plot_data_barplot <- function(
       p_barplot +
       ggplot2::labs(
         caption = paste0(
-          "Distribution of the sequences (N = ", nrow(data), ")"
+          "Distribution of the records (N = ", nrow(data), ")"
         )
       )
   }

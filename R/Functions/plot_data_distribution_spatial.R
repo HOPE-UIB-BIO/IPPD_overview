@@ -102,7 +102,7 @@ plot_data_distribution_spatial <-
         p_map +
         ggplot2::labs(
           caption = paste0(
-            "Distribution of the sequences (N = ", nrow(data), ")"
+            "Distribution of the records (N = ", nrow(data), ")"
           )
         )
     }
