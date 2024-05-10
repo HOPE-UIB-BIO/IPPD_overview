@@ -126,7 +126,7 @@ assertthat::assert_that(
 #----------------------------------------------------------#
 
 p_dep_env_a <-
-  plot_data_distribution_spatial(
+  plot_data_distribution_by_var(
     data = data_ippd_depenv_harmonised,
     var = "depenv_harmonised",
     coord_long = c(long_min, long_max), # [Config]

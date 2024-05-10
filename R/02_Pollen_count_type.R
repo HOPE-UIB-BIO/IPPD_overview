@@ -43,7 +43,7 @@ dplyr::glimpse(ippd_data_public)
 #----------------------------------------------------------#
 
 p_count <-
-  plot_data_distribution_spatial(
+  plot_data_distribution_by_var(
     data = ippd_data_public,
     var = "pollen_percentage",
     coord_long = c(long_min, long_max), # [Config]
