@@ -63,22 +63,6 @@ data_sedimentation <-
     )
   )
 
-data_sedimentation$depth_range %>%
-  unlist() %>%
-  summary()
-
-data_sedimentation$age_range %>%
-  unlist() %>%
-  summary()
-
-data_sedimentation$sedimentation_rate %>%
-  summary()
-
-is.na(data_sedimentation$sedimentation_rate) %>% which()
-
-
-data_sedimentation$age_range[110]
-
 
 #----------------------------------------------------------#
 # 3. Create figure -----
@@ -121,13 +105,39 @@ p_sedimentation_violin <-
     y = "Sedimentation rate (years / 1cm)"
   )
 
-p_sedimentation <-
+p_sedimentation_main <-
   cowplot::plot_grid(
     p_sedimentation_map,
     p_sedimentation_violin,
     nrow = 2,
     labels = "AUTO"
   )
+
+p_sedimentation_bar <-
+  data_sedimentation %>%
+  tidyr::drop_na(sedimentation_rate) %>%
+  get_binned(
+    data_source = .,
+    var = "sedimentation_rate",
+    bin_size = 50
+  ) %>%
+  dplyr::mutate(
+    sedimentation_rate_char = as.character(sedimentation_rate)
+  ) %>%
+  plot_data_barplot(
+    data = .,
+    var_x = "sedimentation_rate",
+    var_fill = "sedimentation_rate_char",
+    text_size = text_size, # [Config]
+    line_size = line_size, # [Config]
+    bar_default_color = gray_dark, # [Config]
+    legend_position = "none",
+    caption_label = FALSE
+  ) +
+  ggplot2::labs(
+    x = "Sedimentation rate (years / 1cm)"
+  )
+
 
 #----------------------------------------------------------#
 # 4. Save -----
@@ -139,9 +149,23 @@ purrr::walk(
     filename = paste0(
       current_dir, "/Outputs/Figures/Figure_08.", .x
     ),
-    plot = p_sedimentation,
+    plot = p_sedimentation_main,
     width = image_width, # [Config]
     height = image_height * 1.25, # [Config]
+    units = image_units, # [Config]
+    dpi = image_dpi # [Config]
+  )
+)
+
+purrr::walk(
+  .x = c("pdf", "png"),
+  .f = ~ ggplot2::ggsave(
+    filename = paste0(
+      current_dir, "/Outputs/Figures/Figure_A06.", .x
+    ),
+    plot = p_sedimentation_bar,
+    width = image_width, # [Config]
+    height = image_height, # [Config]
     units = image_units, # [Config]
     dpi = image_dpi # [Config]
   )
