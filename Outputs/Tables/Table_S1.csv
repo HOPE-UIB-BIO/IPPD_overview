@@ -3,13 +3,12 @@ Lacustrine Beach,Coastal
 coastal,Coastal
 "coastal, estuarine",Coastal
 "lacustrine, playa",Coastal
-Drained Lake,Drained Lake
-"lacustrine, drained lake",Drained Lake
 Fluvial,Fluvial
 Moraine Dammed Lake,Fluvial
 fluvial,Fluvial
 Glacial,Glacial
 Cirque Lake,Lacustrine
+Drained Lake,Lacustrine
 Explosion Crater Lake,Lacustrine
 Glacial Origin Lake,Lacustrine
 Interdunal Lake,Lacustrine
@@ -17,16 +16,17 @@ Lacustrine,Lacustrine
 Lava Flow Dammed Lake,Lacustrine
 Natural Lake,Lacustrine
 Natural Lake (Origin Unknown),Lacustrine
+Small Hollow,Lacustrine
 Solution Origin Lake,Lacustrine
+Spring Mound,Lacustrine
 Wind Origin Lake,Lacustrine
 lacustrine,Lacustrine
+"lacustrine, drained lake",Lacustrine
 "lacustrine, natural open-water",Lacustrine
 "lacustrine, natural open-water, glacial origin",Lacustrine
 "lacustrine, natural open-water, tectonic lake",Lacustrine
 "lacustrine, volcanic lake",Lacustrine
 marine,Marine
-Small Hollow,Small Hollow
-Spring Mound,Spring Mound
 Archaeological,Terrestrial
 terrestrial,Terrestrial
 "terrestrial, cave sediments",Terrestrial

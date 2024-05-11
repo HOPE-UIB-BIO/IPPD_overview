@@ -45,13 +45,11 @@ dplyr::glimpse(ippd_data_public)
 vec_target_depenv <-
   c(
     "Coastal",
-    "Drained Lake",
     "Fluvial",
     "Glacial",
     "Lacustrine",
     "Marine",
-    "Small Hollow",
-    "Spring Mound",
+    "Spring",
     "Terrestrial",
     "Wetlands",
     "Unknown"
@@ -81,7 +79,7 @@ data_ippd_depenv_harmonised <-
       depositionalenvironment == "Lava Flow Dammed Lake" ~ "Lacustrine",
       depositionalenvironment == "Archaeological" ~ "Terrestrial",
       depositionalenvironment == "Fen" ~ "Wetlands",
-      depositionalenvironment == "Drained Lake" ~ "Drained Lake",
+      depositionalenvironment == "Drained Lake" ~ "Lacustrine",
       depositionalenvironment == "Fluvial" ~ "Fluvial",
       depositionalenvironment == "Solution Origin Lake" ~ "Lacustrine",
       depositionalenvironment == "Moraine Dammed Lake" ~ "Fluvial",
@@ -105,7 +103,9 @@ data_ippd_depenv_harmonised <-
       depositionalenvironment == "terrestrial, cave sediments" ~ "Terrestrial",
       depositionalenvironment == "fluvial" ~ "Fluvial",
       depositionalenvironment == "lacustrine, playa" ~ "Coastal",
-      depositionalenvironment == "lacustrine, drained lake" ~ "Drained Lake",
+      depositionalenvironment == "lacustrine, drained lake" ~ "Lacustrine",
+      depositionalenvironment == "Spring Mound" ~ "Lacustrine",
+      depositionalenvironment == "Small Hollow" ~ "Lacustrine",
       is.na(depositionalenvironment) ~ "Unknown"
     )
   )
@@ -125,7 +125,7 @@ assertthat::assert_that(
 # 4. Create figures -----
 #----------------------------------------------------------#
 
-p_dep_env_a <-
+p_dep_env_map <-
   plot_data_distribution_by_var(
     data = data_ippd_depenv_harmonised,
     var = "depenv_harmonised",
@@ -139,10 +139,10 @@ p_dep_env_a <-
     caption_label = TRUE
   )
 
-p_dep_env_b <-
+p_dep_env_bar <-
   plot_data_barplot(
     data = data_ippd_depenv_harmonised,
-    var = "depenv_harmonised",
+    var_x = "depenv_harmonised",
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -153,14 +153,96 @@ p_dep_env_b <-
     axis.title.x = ggplot2::element_blank()
   )
 
-p_dep_env <-
+p_dep_env_main <-
   cowplot::plot_grid(
-    p_dep_env_a,
-    p_dep_env_b,
+    p_dep_env_map,
+    p_dep_env_bar,
     labels = "AUTO",
     ncol = 1,
     rel_heights = c(1, 0.5)
   )
+
+p_dep_env_bar_full <-
+  plot_data_barplot(
+    data = data_ippd_depenv_harmonised,
+    var_x = "depositionalenvironment",
+    text_size = text_size, # [Config]
+    line_size = line_size, # [Config]
+    bar_default_color = gray_dark, # [Config]
+    legend_position = "none",
+    caption_label = FALSE
+  ) +
+  ggplot2::theme(
+    axis.title.x = ggplot2::element_blank()
+  )
+
+p_dep_env_bar_long <-
+  get_binned(
+    data_source = data_ippd_depenv_harmonised,
+    var = "long",
+    bin_size = 10,
+    start_from = "min",
+  ) %>%
+  plot_data_barplot(
+    data = .,
+    var_x = "long",
+    var_fill = "depenv_harmonised",
+    text_size = text_size, # [Config]
+    line_size = line_size, # [Config]
+    bar_default_color = gray_dark, # [Config]
+    legend_position = "none",
+    x_label_angle = 0,
+    plot_number_of_records = FALSE,
+    caption_label = FALSE
+  ) +
+  ggplot2::labs(
+    x = "Longitude"
+  )
+
+p_dep_env_bar_lat <-
+  data_ippd_depenv_harmonised %>%
+  dplyr::mutate(
+    lat_pos = lat * (-1)
+  ) %>%
+  get_binned(
+    data_source = .,
+    var = "lat_pos",
+    bin_size = 5,
+    start_from = "min",
+  ) %>%
+  dplyr::mutate(
+    lat = lat_pos * (-1)
+  ) %>%
+  plot_data_barplot(
+    data = .,
+    var_x = "lat",
+    var_fill = "depenv_harmonised",
+    text_size = text_size, # [Config]
+    line_size = line_size, # [Config]
+    bar_default_color = gray_dark, # [Config]
+    legend_position = "none",
+    x_label_angle = 0,
+    plot_number_of_records = FALSE,
+    caption_label = FALSE
+  ) +
+  ggplot2::labs(
+    x = "Latitude"
+  )
+
+p_dep_env_bar_merge <-
+  cowplot::plot_grid(
+    p_dep_env_bar_full,
+    cowplot::plot_grid(
+      p_dep_env_bar_long,
+      p_dep_env_bar_lat,
+      labels = c("B", "C"),
+      nrow = 1
+    ),
+    labels = c("A", ""),
+    ncol = 1,
+    rel_heights = c(1, 0.5)
+  )
+
 
 #----------------------------------------------------------#
 # 4. Save -----
@@ -172,7 +254,7 @@ purrr::walk(
     filename = paste0(
       current_dir, "/Outputs/Figures/Figure_04.", .x
     ),
-    plot = p_dep_env,
+    plot = p_dep_env_main,
     width = image_width, # [Config]
     height = image_height * 1.5, # [Config]
     units = image_units, # [Config]
@@ -192,3 +274,17 @@ data_ippd_depenv_harmonised_overview %>%
     x = .,
     file = paste0(current_dir, "/Outputs/Tables/Table_S1.csv")
   )
+
+purrr::walk(
+  .x = c("pdf", "png"),
+  .f = ~ ggplot2::ggsave(
+    filename = paste0(
+      current_dir, "/Outputs/Figures/Figure_A03.", .x
+    ),
+    plot = p_dep_env_bar_merge,
+    width = image_width, # [Config]
+    height = image_height * 1.2, # [Config]
+    units = image_units, # [Config]
+    dpi = image_dpi # [Config]
+  )
+)
