@@ -42,7 +42,7 @@ dplyr::glimpse(ippd_data_public)
 # 3. Create figure -----
 #----------------------------------------------------------#
 
-p_chron_con_count <-
+p_chron_con_count_map <-
   plot_data_distribution_by_numbers(
     data = ippd_data_public,
     var = "n_chron_control",
@@ -57,6 +57,29 @@ p_chron_con_count <-
     caption_label = TRUE
   )
 
+p_chron_con_count_bar <-
+  get_binned(
+    data_source = ippd_data_public,
+    var = "n_chron_control",
+    bin_size = 5
+  ) %>%
+  dplyr::mutate(
+    n_chron_control_char = as.character(n_chron_control)
+  ) %>%
+  plot_data_barplot(
+    data = .,
+    var_x = "n_chron_control",
+    var_fill = "n_chron_control_char",
+    text_size = text_size, # [Config]
+    line_size = line_size, # [Config]
+    bar_default_color = gray_dark, # [Config]
+    legend_position = "none",
+    caption_label = FALSE
+  ) +
+  ggplot2::labs(
+    x = "Number of chronology control points"
+  )
+
 
 #----------------------------------------------------------#
 # 4. Save -----
@@ -68,9 +91,23 @@ purrr::walk(
     filename = paste0(
       current_dir, "/Outputs/Figures/Figure_05.", .x
     ),
-    plot = p_chron_con_count,
+    plot = p_chron_con_count_map,
     width = image_width, # [Config]
     height = image_height, # [Config]
+    units = image_units, # [Config]
+    dpi = image_dpi # [Config]
+  )
+)
+
+purrr::walk(
+  .x = c("pdf", "png"),
+  .f = ~ ggplot2::ggsave(
+    filename = paste0(
+      current_dir, "/Outputs/Figures/Figure_A04.", .x
+    ),
+    plot = p_chron_con_count_bar,
+    width = image_width, # [Config]
+    height = image_height * 1.2, # [Config]
     units = image_units, # [Config]
     dpi = image_dpi # [Config]
   )
