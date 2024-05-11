@@ -93,19 +93,6 @@ p_region_bar_long <-
     x = "Longitude"
   )
 
-ippd_data_public %>%
-  dplyr::mutate(
-    lat_pos = lat * (-1)
-  ) %>%
-  get_binned(
-    data_source = .,
-    var = "lat_pos",
-    bin_size = 5,
-    start_from = "min",
-  ) %>%
-  dplyr::pull("lat_pos") %>%
-  summary()
-
 p_region_bar_lat <-
   ippd_data_public %>%
   dplyr::mutate(
