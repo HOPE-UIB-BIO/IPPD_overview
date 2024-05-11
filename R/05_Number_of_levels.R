@@ -42,7 +42,7 @@ dplyr::glimpse(ippd_data_public)
 # 3. Create figure -----
 #----------------------------------------------------------#
 
-p_level_count <-
+p_level_count_map <-
   plot_data_distribution_by_numbers(
     data = ippd_data_public,
     var = "n_sample_counts",
@@ -57,6 +57,29 @@ p_level_count <-
     caption_label = TRUE
   )
 
+p_level_count_bar <-
+  get_binned(
+    data_source = ippd_data_public,
+    var = "n_sample_counts",
+    bin_size = 50
+  ) %>%
+  dplyr::mutate(
+    n_sample_counts_char = as.character(n_sample_counts)
+  ) %>%
+  plot_data_barplot(
+    data = .,
+    var_x = "n_sample_counts",
+    var_fill = "n_sample_counts_char",
+    text_size = text_size, # [Config]
+    line_size = line_size, # [Config]
+    bar_default_color = gray_dark, # [Config]
+    legend_position = "none",
+    caption_label = FALSE
+  ) +
+  ggplot2::labs(
+    x = "Number of levels"
+  )
+
 
 #----------------------------------------------------------#
 # 4. Save -----
@@ -68,7 +91,21 @@ purrr::walk(
     filename = paste0(
       current_dir, "/Outputs/Figures/Figure_06.", .x
     ),
-    plot = p_level_count,
+    plot = p_level_count_map,
+    width = image_width, # [Config]
+    height = image_height, # [Config]
+    units = image_units, # [Config]
+    dpi = image_dpi # [Config]
+  )
+)
+
+purrr::walk(
+  .x = c("pdf", "png"),
+  .f = ~ ggplot2::ggsave(
+    filename = paste0(
+      current_dir, "/Outputs/Figures/Figure_A05.", .x
+    ),
+    plot = p_level_count_bar,
     width = image_width, # [Config]
     height = image_height, # [Config]
     units = image_units, # [Config]
