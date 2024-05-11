@@ -107,7 +107,7 @@ purrr::walk(
     ),
     plot = p_chron_con_count_bar,
     width = image_width, # [Config]
-    height = image_height * 1.2, # [Config]
+    height = image_height, # [Config]
     units = image_units, # [Config]
     dpi = image_dpi # [Config]
   )
