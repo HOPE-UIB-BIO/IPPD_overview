@@ -95,7 +95,7 @@ plot_data_barplot <- function(
         vjust = 1
       ),
       line = ggplot2::element_line(
-        size = line_size
+        linewidth = line_size
       ),
       legend.title = ggplot2::element_blank(),
       legend.position = legend_position

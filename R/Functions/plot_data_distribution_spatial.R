@@ -86,7 +86,7 @@ plot_data_distribution_spatial <-
       ggplot2::theme(
         text = ggplot2::element_text(size = text_size),
         plot.title = ggplot2::element_text(size = text_size),
-        line = ggplot2::element_line(size = line_size),
+        line = ggplot2::element_line(linewidth = line_size),
         legend.title = ggplot2::element_blank(),
         legend.position = legend_position
       ) +
