@@ -42,7 +42,7 @@ dplyr::glimpse(ippd_data_public)
 # 3. Create figure -----
 #----------------------------------------------------------#
 
-p_region <-
+p_region_map <-
   plot_data_distribution_by_var(
     data = ippd_data_public,
     var = "region",
@@ -56,6 +56,99 @@ p_region <-
     caption_label = TRUE
   )
 
+p_region_bar <-
+  plot_data_barplot(
+    data = ippd_data_public,
+    var_x = "region",
+    text_size = text_size, # [Config]
+    line_size = line_size, # [Config]
+    bar_default_color = gray_dark, # [Config]
+    legend_position = "none",
+    caption_label = FALSE
+  ) +
+  ggplot2::theme(
+    axis.title.x = ggplot2::element_blank()
+  )
+
+p_region_bar_long <-
+  get_binned(
+    data_source = ippd_data_public,
+    var = "long",
+    bin_size = 10,
+    start_from = "min",
+  ) %>%
+  plot_data_barplot(
+    data = .,
+    var_x = "long",
+    var_fill = "region",
+    text_size = text_size, # [Config]
+    line_size = line_size, # [Config]
+    bar_default_color = gray_dark, # [Config]
+    legend_position = "none",
+    x_label_angle = 0,
+    plot_number_of_records = FALSE,
+    caption_label = FALSE
+  ) +
+  ggplot2::labs(
+    x = "Longitude"
+  )
+
+ippd_data_public %>%
+  dplyr::mutate(
+    lat_pos = lat * (-1)
+  ) %>%
+  get_binned(
+    data_source = .,
+    var = "lat_pos",
+    bin_size = 5,
+    start_from = "min",
+  ) %>%
+  dplyr::pull("lat_pos") %>%
+  summary()
+
+p_region_bar_lat <-
+  ippd_data_public %>%
+  dplyr::mutate(
+    lat_pos = lat * (-1)
+  ) %>%
+  get_binned(
+    data_source = .,
+    var = "lat_pos",
+    bin_size = 5,
+    start_from = "min",
+  ) %>%
+  dplyr::mutate(
+    lat = lat_pos * (-1)
+  ) %>%
+  plot_data_barplot(
+    data = .,
+    var_x = "lat",
+    var_fill = "region",
+    text_size = text_size, # [Config]
+    line_size = line_size, # [Config]
+    bar_default_color = gray_dark, # [Config]
+    legend_position = "none",
+    x_label_angle = 0,
+    plot_number_of_records = FALSE,
+    caption_label = FALSE
+  ) +
+  ggplot2::labs(
+    x = "Latitude"
+  )
+
+p_region_bar_merge <-
+  cowplot::plot_grid(
+    p_region_bar,
+    cowplot::plot_grid(
+      p_region_bar_long,
+      p_region_bar_lat,
+      labels = c("B", "C"),
+      nrow = 1
+    ),
+    labels = c("A", ""),
+    ncol = 1
+  )
+
 #----------------------------------------------------------#
 # 4. Save -----
 #----------------------------------------------------------#
@@ -66,7 +159,21 @@ purrr::walk(
     filename = paste0(
       current_dir, "/Outputs/Figures/Figure_01.", .x
     ),
-    plot = p_region,
+    plot = p_region_map,
+    width = image_width, # [Config]
+    height = image_height, # [Config]
+    units = image_units, # [Config]
+    dpi = image_dpi # [Config]
+  )
+)
+
+purrr::walk(
+  .x = c("pdf", "png"),
+  .f = ~ ggplot2::ggsave(
+    filename = paste0(
+      current_dir, "/Outputs/Figures/Figure_A01.", .x
+    ),
+    plot = p_region_bar_merge,
     width = image_width, # [Config]
     height = image_height, # [Config]
     units = image_units, # [Config]
