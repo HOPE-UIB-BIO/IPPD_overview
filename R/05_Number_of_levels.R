@@ -24,6 +24,9 @@ source(
   here::here("R/00_Config_file.R")
 )
 
+bin_value <- 75
+
+verbose <- FALSE
 
 #----------------------------------------------------------#
 # 2. Load data  -----
@@ -35,18 +38,47 @@ ippd_data_public <-
   ) %>%
   purrr::pluck("data")
 
-dplyr::glimpse(ippd_data_public)
+if (
+  isTRUE(verbose)
+) {
+  dplyr::glimpse(ippd_data_public)
+}
 
 
 #----------------------------------------------------------#
 # 3. Create figure -----
 #----------------------------------------------------------#
 
+data_n_level <-
+  ippd_data_public %>%
+  tidyr::drop_na(n_sample_counts) %>%
+  dplyr::mutate(n_sample_counts_binned = n_sample_counts) %>%
+  get_binned(
+    data_source = .,
+    var = "n_sample_counts_binned",
+    bin_size = bin_value,
+    mode = "data"
+  ) %>%
+  dplyr::mutate(
+    n_sample_counts_char = as.character(n_sample_counts_binned)
+  )
+
+pal_n_level <-
+  data_n_level %>%
+  dplyr::arrange(n_sample_counts) %>%
+  make_custom_palette(
+    data = .,
+    var = "n_sample_counts_binned",
+    palette = rev(PrettyCols::PrettyColsPalettes[["Greens"]][[1]])
+  )
+
 p_level_count_map <-
   plot_data_distribution_by_numbers(
-    data = ippd_data_public,
+    data = data_n_level,
     var = "n_sample_counts",
-    bin_size = 50,
+    custom_palette = pal_n_level,
+    point_alpha_outer = 0.5,
+    bin_size = bin_value,
     coord_long = c(long_min, long_max), # [Config]
     coord_lat = c(lat_min, lat_max), # [Config]
     point_size = point_size, # [Config]
@@ -54,22 +86,16 @@ p_level_count_map <-
     line_size = line_size, # [Config]
     map_color_fill = map_color_fill, # [Config]
     map_color_border = map_color_border, # [Config]
-    caption_label = TRUE
+    caption_label = TRUE,
+    legend_n_col = 5
   )
 
 p_level_count_bar <-
-  get_binned(
-    data_source = ippd_data_public,
-    var = "n_sample_counts",
-    bin_size = 50
-  ) %>%
-  dplyr::mutate(
-    n_sample_counts_char = as.character(n_sample_counts)
-  ) %>%
   plot_data_barplot(
-    data = .,
-    var_x = "n_sample_counts",
+    data = data_n_level,
+    var_x = "n_sample_counts_binned",
     var_fill = "n_sample_counts_char",
+    custom_pallete = pal_n_level,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
