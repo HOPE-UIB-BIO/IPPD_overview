@@ -31,8 +31,6 @@ Archaeological,Terrestrial
 terrestrial,Terrestrial
 "terrestrial, cave sediments",Terrestrial
 "terrestrial, soil, buried soil",Terrestrial
-Unknown,Unknown
-NA,Unknown
 Fen,Wetlands
 Mire,Wetlands
 Swamp,Wetlands
@@ -42,3 +40,5 @@ Valley Mire,Wetlands
 "terrestrial, mire, bog,	blanket bog",Wetlands
 "terrestrial, mire, fen",Wetlands
 "terrestrial, mire,swamp (forested wetland or peatland)",Wetlands
+Unknown,Unknown
+NA,Unknown

@@ -24,6 +24,7 @@ source(
   here::here("R/00_Config_file.R")
 )
 
+verbose <- FALSE
 
 #----------------------------------------------------------#
 # 2. Load data  -----
@@ -35,7 +36,11 @@ ippd_data_public <-
   ) %>%
   purrr::pluck("data")
 
-dplyr::glimpse(ippd_data_public)
+if (
+  isTRUE(verbose)
+) {
+  dplyr::glimpse(ippd_data_public)
+}
 
 
 #----------------------------------------------------------#
@@ -49,7 +54,6 @@ vec_target_depenv <-
     "Glacial",
     "Lacustrine",
     "Marine",
-    "Spring",
     "Terrestrial",
     "Wetlands",
     "Unknown"
@@ -59,54 +63,71 @@ vec_target_depenv <-
 data_neotoma_depenv <- get_neotoma_depenv()
 
 # check the Neotoma depositional environments harmisation for reference
-View(data_neotoma_depenv)
+if (
+  isTRUE(verbose)
+) {
+  View(data_neotoma_depenv)
+}
 
 data_ippd_depenv_harmonised <-
   ippd_data_public %>%
   dplyr::mutate(
     depenv_harmonised = dplyr::case_when(
       .default = depositionalenvironment,
-      depositionalenvironment == "Valley Mire" ~ "Wetlands",
-      depositionalenvironment == "Cirque Lake" ~ "Lacustrine",
-      depositionalenvironment == "Explosion Crater Lake" ~ "Lacustrine",
-      depositionalenvironment == "Glacial Origin Lake" ~ "Lacustrine",
-      depositionalenvironment == "Swamp" ~ "Wetlands",
-      depositionalenvironment == "Mire" ~ "Wetlands",
-      depositionalenvironment == "Wind Origin Lake" ~ "Lacustrine",
-      depositionalenvironment == "Glacial" ~ "Glacial",
-      depositionalenvironment == "Interdunal Lake" ~ "Lacustrine",
-      depositionalenvironment == "Natural Lake (Origin Unknown)" ~ "Lacustrine",
-      depositionalenvironment == "Lava Flow Dammed Lake" ~ "Lacustrine",
-      depositionalenvironment == "Archaeological" ~ "Terrestrial",
-      depositionalenvironment == "Fen" ~ "Wetlands",
-      depositionalenvironment == "Drained Lake" ~ "Lacustrine",
-      depositionalenvironment == "Fluvial" ~ "Fluvial",
-      depositionalenvironment == "Solution Origin Lake" ~ "Lacustrine",
-      depositionalenvironment == "Moraine Dammed Lake" ~ "Fluvial",
-      depositionalenvironment == "Lacustrine Beach" ~ "Coastal",
-      depositionalenvironment == "Natural Lake" ~ "Lacustrine",
-      depositionalenvironment == "lacustrine, volcanic lake" ~ "Lacustrine",
-      depositionalenvironment == "lacustrine, natural open-water, tectonic lake" ~ "Lacustrine",
-      depositionalenvironment == "terrestrial, mire, bog,\tblanket bog" ~ "Wetlands",
-      depositionalenvironment == "terrestrial, mire, bog" ~ "Wetlands",
-      depositionalenvironment == "terrestrial, mire (i.e. peatland, >30cm peat)" ~ "Wetlands",
-      depositionalenvironment == "lacustrine, natural open-water" ~ "Lacustrine",
-      depositionalenvironment == "coastal" ~ "Coastal",
-      depositionalenvironment == "terrestrial, soil, buried soil" ~ "Terrestrial",
-      depositionalenvironment == "terrestrial, mire,swamp (forested wetland or peatland)" ~ "Wetlands",
-      depositionalenvironment == "lacustrine" ~ "Lacustrine",
-      depositionalenvironment == "lacustrine, natural open-water, glacial origin" ~ "Lacustrine",
-      depositionalenvironment == "terrestrial, mire, fen" ~ "Wetlands",
-      depositionalenvironment == "coastal, estuarine" ~ "Coastal",
-      depositionalenvironment == "terrestrial" ~ "Terrestrial",
+      depositionalenvironment %in% c(
+        "Valley Mire",
+        "Swamp",
+        "Mire",
+        "terrestrial, mire, bog,\tblanket bog",
+        "terrestrial, mire, bog",
+        "terrestrial, mire (i.e. peatland, >30cm peat)",
+        "terrestrial, mire,swamp (forested wetland or peatland)",
+        "terrestrial, mire, fen",
+        "Fen"
+      ) ~ "Wetlands",
+      depositionalenvironment %in% c(
+        "Cirque Lake",
+        "Explosion Crater Lake",
+        "Glacial Origin Lake",
+        "Wind Origin Lake",
+        "Interdunal Lake",
+        "Natural Lake (Origin Unknown)",
+        "Lava Flow Dammed Lake",
+        "Drained Lake",
+        "Natural Lake",
+        "lacustrine, volcanic lake",
+        "lacustrine, natural open-water, tectonic lake",
+        "lacustrine, natural open-water, glacial origin",
+        "lacustrine, drained lake",
+        "Spring Mound",
+        "Small Hollow",
+        "Solution Origin Lake",
+        "lacustrine",
+        "lacustrine, natural open-water"
+      ) ~ "Lacustrine",
+      depositionalenvironment %in% c(
+        "Archaeological", "terrestrial, soil, buried soil",
+        "terrestrial, cave sediments",
+        "terrestrial"
+      ) ~ "Terrestrial",
+      depositionalenvironment %in% c(
+        "Fluvial", "Moraine Dammed Lake",
+        "fluvial"
+      ) ~ "Fluvial",
+      depositionalenvironment %in% c(
+        "Lacustrine Beach",
+        "coastal, estuarine",
+        "lacustrine, playa",
+        "coastal"
+      ) ~ "Coastal",
       depositionalenvironment == "marine" ~ "Marine",
-      depositionalenvironment == "terrestrial, cave sediments" ~ "Terrestrial",
-      depositionalenvironment == "fluvial" ~ "Fluvial",
-      depositionalenvironment == "lacustrine, playa" ~ "Coastal",
-      depositionalenvironment == "lacustrine, drained lake" ~ "Lacustrine",
-      depositionalenvironment == "Spring Mound" ~ "Lacustrine",
-      depositionalenvironment == "Small Hollow" ~ "Lacustrine",
       is.na(depositionalenvironment) ~ "Unknown"
+    )
+  ) %>%
+  dplyr::mutate(
+    depenv_harmonised = forcats::fct_relevel(
+      depenv_harmonised,
+      vec_target_depenv
     )
   )
 
@@ -121,6 +142,14 @@ assertthat::assert_that(
   msg = "Some depositional environments are not harmonised"
 )
 
+pal_dep_env <-
+  make_custom_palette(
+    data = data_ippd_depenv_harmonised,
+    var = "depenv_harmonised",
+    palette = sort(PrettyCols::PrettyColsPalettes[["Neon"]][[1]])
+  )
+
+
 #----------------------------------------------------------#
 # 4. Create figures -----
 #----------------------------------------------------------#
@@ -129,6 +158,8 @@ p_dep_env_map <-
   plot_data_distribution_by_var(
     data = data_ippd_depenv_harmonised,
     var = "depenv_harmonised",
+    point_alpha_outer = 0.5,
+    custom_pallete = pal_dep_env,
     coord_long = c(long_min, long_max), # [Config]
     coord_lat = c(lat_min, lat_max), # [Config]
     point_size = point_size, # [Config]
@@ -143,6 +174,7 @@ p_dep_env_bar <-
   plot_data_barplot(
     data = data_ippd_depenv_harmonised,
     var_x = "depenv_harmonised",
+    custom_pallete = pal_dep_env,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -167,6 +199,7 @@ p_dep_env_bar_full <-
     data = data_ippd_depenv_harmonised,
     var_x = "depositionalenvironment",
     var_fill = "depenv_harmonised",
+    custom_pallete = pal_dep_env,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -188,6 +221,7 @@ p_dep_env_bar_long <-
     data = .,
     var_x = "long",
     var_fill = "depenv_harmonised",
+    custom_pallete = pal_dep_env,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -218,6 +252,7 @@ p_dep_env_bar_lat <-
     data = .,
     var_x = "lat",
     var_fill = "depenv_harmonised",
+    custom_pallete = pal_dep_env,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
