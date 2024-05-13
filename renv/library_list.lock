@@ -640,6 +640,11 @@
       ],
       "Hash": "b59377caa7ed00fa41808342002138f9"
     },
+    "httpgd": {
+      "Package": "httpgd",
+      "Version": "2.0.1",
+      "Source": "Repository"
+    },
     "httr2": {
       "Package": "httr2",
       "Version": "1.0.1",
@@ -672,6 +677,11 @@
       ],
       "Hash": "0080607b4a1a7b28979aecef976d8bc2"
     },
+    "janitor": {
+      "Package": "janitor",
+      "Version": "2.2.0",
+      "Source": "Repository"
+    },
     "jsonlite": {
       "Package": "jsonlite",
       "Version": "1.8.8",
@@ -681,6 +691,11 @@
         "methods"
       ],
       "Hash": "e1b9c55281c5adc4dd113652d9e26768"
+    },
+    "knitr": {
+      "Package": "knitr",
+      "Version": "1.46",
+      "Source": "Repository"
     },
     "labeling": {
       "Package": "labeling",
@@ -692,6 +707,11 @@
         "stats"
       ],
       "Hash": "b64ec208ac5bc1852b285f665d6368b3"
+    },
+    "languageserver": {
+      "Package": "languageserver",
+      "Version": "0.3.16",
+      "Source": "Repository"
     },
     "lattice": {
       "Package": "lattice",
@@ -756,6 +776,11 @@
         "R"
       ],
       "Hash": "7ce2733a9826b3aeb1775d56fd305472"
+    },
+    "maps": {
+      "Package": "maps",
+      "Version": "3.4.2",
+      "Source": "Repository"
     },
     "mgcv": {
       "Package": "mgcv",
@@ -1288,6 +1313,11 @@
       ],
       "Hash": "829f27b9c4919c16b593794a6344d6c0"
     },
+    "tidyverse": {
+      "Package": "tidyverse",
+      "Version": "2.0.0",
+      "Source": "Repository"
+    },
     "tzdb": {
       "Package": "tzdb",
       "Version": "0.4.0",
@@ -1298,6 +1328,11 @@
         "cpp11"
       ],
       "Hash": "f561504ec2897f4d46f0c7657e488ae1"
+    },
+    "usethis": {
+      "Package": "usethis",
+      "Version": "2.2.3",
+      "Source": "Repository"
     },
     "utf8": {
       "Package": "utf8",
