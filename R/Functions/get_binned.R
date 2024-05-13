@@ -14,6 +14,7 @@ get_binned <- function(
       dplyr::any_of(var)
     ) %>%
     purrr::pluck(1) %>%
+    as.numeric() %>%
     range()
 
   if (
@@ -47,6 +48,9 @@ get_binned <- function(
   ) {
     data_binned <-
       data_source %>%
+      dplyr::mutate(
+        !!var := as.numeric(get(var))
+      ) %>%
       dplyr::filter(is.na(get(var)) == FALSE) %>%
       dplyr::mutate(
         !!var := ifelse(get(var) > sel_max, sel_max, get(var)),
