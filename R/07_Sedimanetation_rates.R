@@ -24,6 +24,7 @@ source(
   here::here("R/00_Config_file.R")
 )
 
+bin_value <- 75
 
 #----------------------------------------------------------#
 # 2. Load data  -----
@@ -44,6 +45,7 @@ dplyr::glimpse(ippd_data_public)
 
 data_sedimentation <-
   ippd_data_public %>%
+  add_region_label() %>%
   dplyr::mutate(
     sedimentation_rate = purrr::map2_dbl(
       .x = depth_range,
@@ -63,19 +65,51 @@ data_sedimentation <-
     )
   )
 
+data_sedimentation_binned <-
+  data_sedimentation %>%
+  tidyr::drop_na(sedimentation_rate) %>%
+  dplyr::mutate(sedimentation_rate_binned = sedimentation_rate) %>%
+  get_binned(
+    data_source = .,
+    var = "sedimentation_rate_binned",
+    bin_size = bin_value,
+    mode = "data"
+  ) %>%
+  dplyr::mutate(
+    sedimentation_rate_char = as.character(sedimentation_rate_binned)
+  )
+
+pal_region <-
+  make_custom_palette(
+    data = data_sedimentation_binned,
+    var = "region_label",
+    palette = sort(
+      PrettyCols::PrettyColsPalettes[["Rainbow"]][[1]]
+    )
+  )
+
+pal_sedimentation <-
+  data_sedimentation_binned %>%
+  dplyr::arrange(sedimentation_rate) %>%
+  make_custom_palette(
+    data = .,
+    var = "sedimentation_rate_binned",
+    palette = rev(PrettyCols::PrettyColsPalettes[["Teals"]][[1]])
+  )
+
 
 #----------------------------------------------------------#
 # 3. Create figure -----
 #----------------------------------------------------------#
 
 p_sedimentation_map <-
-  data_sedimentation %>%
-  tidyr::drop_na(sedimentation_rate) %>%
   plot_data_distribution_by_numbers(
-    data = .,
+    data = data_sedimentation_binned,
     var = "sedimentation_rate",
-    bin_size = 50,
-    legend_n_col = 10,
+    bin_size = bin_value,
+    legend_n_col = 5,
+    custom_palette = pal_sedimentation,
+    point_alpha_outer = 0.5,
     coord_long = c(long_min, long_max), # [Config]
     coord_lat = c(lat_min, lat_max), # [Config]
     point_size = point_size, # [Config]
@@ -92,7 +126,8 @@ p_sedimentation_violin <-
   plot_data_violin_x_y(
     data = .,
     var_y = "sedimentation_rate",
-    var_x = "region",
+    var_x = "region_label",
+    custom_pallete = pal_region,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     default_color = gray_dark, # [Config]
@@ -114,20 +149,11 @@ p_sedimentation_main <-
   )
 
 p_sedimentation_bar <-
-  data_sedimentation %>%
-  tidyr::drop_na(sedimentation_rate) %>%
-  get_binned(
-    data_source = .,
-    var = "sedimentation_rate",
-    bin_size = 50
-  ) %>%
-  dplyr::mutate(
-    sedimentation_rate_char = as.character(sedimentation_rate)
-  ) %>%
   plot_data_barplot(
-    data = .,
-    var_x = "sedimentation_rate",
+    data = data_sedimentation_binned,
+    var_x = "sedimentation_rate_binned",
     var_fill = "sedimentation_rate_char",
+    custom_pallete = pal_sedimentation,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
