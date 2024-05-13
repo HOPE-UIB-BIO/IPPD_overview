@@ -166,6 +166,7 @@ p_dep_env_bar_full <-
   plot_data_barplot(
     data = data_ippd_depenv_harmonised,
     var_x = "depositionalenvironment",
+    var_fill = "depenv_harmonised",
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
