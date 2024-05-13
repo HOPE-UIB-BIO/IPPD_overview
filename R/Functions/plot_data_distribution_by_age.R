@@ -126,7 +126,7 @@ plot_data_distribution_by_age <- function(data,
     )
 
   global_fig <-
-    cowplot::plot_grid(
+    ggpubr::ggarrange(
       p_1,
       p_2 +
         ggplot2::theme(
@@ -141,9 +141,10 @@ plot_data_distribution_by_age <- function(data,
           axis.title.y = ggplot2::element_blank()
         ),
       nrow = 1,
-      rel_widths = c(0.37, 0.3, 0.3),
+      heights = c(0.37, 0.3, 0.3),
       align = "h",
-      labels = "AUTO"
+      labels = "AUTO",
+      common.legend = TRUE
     )
 
   cowplot::plot_grid(
