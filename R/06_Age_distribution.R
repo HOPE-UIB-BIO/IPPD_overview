@@ -24,6 +24,11 @@ source(
   here::here("R/00_Config_file.R")
 )
 
+verbose <- FALSE
+
+sel_limits <- c(0, 50e3)
+
+bin_value <- 10e3
 
 #----------------------------------------------------------#
 # 2. Load data  -----
@@ -35,18 +40,59 @@ ippd_data_public <-
   ) %>%
   purrr::pluck("data")
 
-dplyr::glimpse(ippd_data_public)
+if (
+  isTRUE(verbose)
+) {
+  dplyr::glimpse(ippd_data_public)
+}
 
 
 #----------------------------------------------------------#
 # 3. Create figure -----
 #----------------------------------------------------------#
 
+ippd_data_public %>%
+  dplyr::pull("age_range") %>%
+  unlist() %>%
+  sort()
+
+data_age <-
+  ippd_data_public %>%
+  dplyr::mutate(
+    age_young = purrr::map_dbl(
+      .x = age_range,
+      .f = ~ min(.x)
+    ),
+    age_old = purrr::map_dbl(
+      .x = age_range,
+      .f = ~ max(.x)
+    ),
+    age_mid = c(age_young + age_old) / 2,
+    age_lenght = abs(age_young - age_old)
+  )
+
+data_age  %>% 
+  dplyr::select(age_young, age_old, age_mid, age_lenght) %>% 
+  dplyr::glimpse()
+
+tidyr::drop_na(n_sample_counts) %>%
+  dplyr::mutate(n_sample_counts_binned = n_sample_counts) %>%
+  get_binned(
+    data_source = .,
+    var = "n_sample_counts_binned",
+    bin_size = bin_value,
+    mode = "data"
+  ) %>%
+  dplyr::mutate(
+    n_sample_counts_char = as.character(n_sample_counts_binned)
+  )
+
+
 p_age_distr <-
   plot_data_distribution_by_age(
     data = ippd_data_public,
-    bin_size = 10e3,
-    limits = c(0, 50e3),
+    bin_size = bin_value,
+    limits = sel_limits,
     coord_long = c(long_min, long_max), # [Config]
     coord_lat = c(lat_min, lat_max), # [Config]
     point_size = point_size, # [Config]
