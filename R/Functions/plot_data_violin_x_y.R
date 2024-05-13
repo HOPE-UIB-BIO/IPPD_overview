@@ -2,8 +2,8 @@ plot_data_violin_x_y <- function(
     data,
     var_x,
     var_y,
-    custom_pallete,
-    pallete_set = "Set1",
+    custom_palette,
+    palette_set = "Set1",
     default_color = "grey30",
     default_box_fill = "white",
     line_alpha_violin = 1,
@@ -14,7 +14,7 @@ plot_data_violin_x_y <- function(
     legend_position = "bottom",
     caption_label = TRUE) {
   if (
-    missing(custom_pallete)
+    missing(custom_palette)
   ) {
     var_list <-
       data %>%
@@ -30,13 +30,13 @@ plot_data_violin_x_y <- function(
             max(var_list_length, 3),
             8
           ),
-          pallete_set
+          palette_set
         )
       )
 
-    custom_pallete <- get_palette_set(var_list_length)
+    custom_palette <- get_palette_set(var_list_length)
 
-    names(custom_pallete) <- var_list
+    names(custom_palette) <- var_list
   }
 
   p_barplot <-
@@ -61,8 +61,8 @@ plot_data_violin_x_y <- function(
       width = 0.15,
       outlier.shape = NA
     ) +
-    ggplot2::scale_color_manual(values = custom_pallete) +
-    ggplot2::scale_fill_manual(values = custom_pallete) +
+    ggplot2::scale_color_manual(values = custom_palette) +
+    ggplot2::scale_fill_manual(values = custom_palette) +
     ggplot2::theme(
       text = ggplot2::element_text(size = text_size),
       plot.title = ggplot2::element_text(size = text_size),

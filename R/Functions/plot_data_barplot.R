@@ -2,8 +2,8 @@ plot_data_barplot <- function(
     data,
     var_x,
     var_fill,
-    custom_pallete,
-    pallete_set = "Set1",
+    custom_palette,
+    palette_set = "Set1",
     bar_default_color = "grey30",
     bar_alpha = 1,
     text_size = 10,
@@ -20,7 +20,7 @@ plot_data_barplot <- function(
   }
 
   if (
-    missing(custom_pallete)
+    missing(custom_palette)
   ) {
     var_list <-
       data %>%
@@ -36,13 +36,13 @@ plot_data_barplot <- function(
             max(var_list_length, 3),
             8
           ),
-          pallete_set
+          palette_set
         )
       )
 
-    custom_pallete <- get_palette_set(var_list_length)
+    custom_palette <- get_palette_set(var_list_length)
 
-    names(custom_pallete) <- var_list
+    names(custom_palette) <- var_list
   }
 
   data_summed <-
@@ -79,8 +79,8 @@ plot_data_barplot <- function(
       linewidth = line_size,
       alpha = bar_alpha
     ) +
-    ggplot2::scale_color_manual(values = custom_pallete) +
-    ggplot2::scale_fill_manual(values = custom_pallete) +
+    ggplot2::scale_color_manual(values = custom_palette) +
+    ggplot2::scale_fill_manual(values = custom_palette) +
     ggplot2::theme(
       text = ggplot2::element_text(
         size = text_size

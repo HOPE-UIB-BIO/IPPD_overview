@@ -95,7 +95,7 @@ p_level_count_bar <-
     data = data_n_level,
     var_x = "n_sample_counts_binned",
     var_fill = "n_sample_counts_char",
-    custom_pallete = pal_n_level,
+    custom_palette = pal_n_level,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]

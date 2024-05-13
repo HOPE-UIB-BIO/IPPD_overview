@@ -58,7 +58,7 @@ p_count_map <-
     data = data_pollen_count,
     var = "pollen_percentage_label",
     point_alpha_outer = 0.5,
-    custom_pallete = pal_pollen_count,
+    custom_palette = pal_pollen_count,
     coord_long = c(long_min, long_max), # [Config]
     coord_lat = c(lat_min, lat_max), # [Config]
     point_size = point_size, # [Config]
@@ -73,7 +73,7 @@ p_count_bar <-
   plot_data_barplot(
     data = data_pollen_count,
     var_x = "pollen_percentage_label",
-    custom_pallete = pal_pollen_count,
+    custom_palette = pal_pollen_count,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -95,7 +95,7 @@ p_count_bar_long <-
     data = .,
     var_x = "long",
     var_fill = "pollen_percentage_label",
-    custom_pallete = pal_pollen_count,
+    custom_palette = pal_pollen_count,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -126,7 +126,7 @@ p_count_bar_lat <-
     data = .,
     var_x = "lat",
     var_fill = "pollen_percentage_label",
-    custom_pallete = pal_pollen_count,
+    custom_palette = pal_pollen_count,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]

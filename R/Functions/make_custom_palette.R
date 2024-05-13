@@ -22,9 +22,9 @@ make_custom_palette <- function(data, var, palette, ...) {
   get_palette_set <-
     grDevices::colorRampPalette(palette)
 
-  custom_pallete <- get_palette_set(var_list_length)
+  custom_palette <- get_palette_set(var_list_length)
 
-  names(custom_pallete) <- var_list
+  names(custom_palette) <- var_list
 
-  return(custom_pallete)
+  return(custom_palette)
 }

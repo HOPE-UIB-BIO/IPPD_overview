@@ -159,7 +159,7 @@ p_dep_env_map <-
     data = data_ippd_depenv_harmonised,
     var = "depenv_harmonised",
     point_alpha_outer = 0.5,
-    custom_pallete = pal_dep_env,
+    custom_palette = pal_dep_env,
     coord_long = c(long_min, long_max), # [Config]
     coord_lat = c(lat_min, lat_max), # [Config]
     point_size = point_size, # [Config]
@@ -174,7 +174,7 @@ p_dep_env_bar <-
   plot_data_barplot(
     data = data_ippd_depenv_harmonised,
     var_x = "depenv_harmonised",
-    custom_pallete = pal_dep_env,
+    custom_palette = pal_dep_env,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -199,7 +199,7 @@ p_dep_env_bar_full <-
     data = data_ippd_depenv_harmonised,
     var_x = "depositionalenvironment",
     var_fill = "depenv_harmonised",
-    custom_pallete = pal_dep_env,
+    custom_palette = pal_dep_env,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -221,7 +221,7 @@ p_dep_env_bar_long <-
     data = .,
     var_x = "long",
     var_fill = "depenv_harmonised",
-    custom_pallete = pal_dep_env,
+    custom_palette = pal_dep_env,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -252,7 +252,7 @@ p_dep_env_bar_lat <-
     data = .,
     var_x = "lat",
     var_fill = "depenv_harmonised",
-    custom_pallete = pal_dep_env,
+    custom_palette = pal_dep_env,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]

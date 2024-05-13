@@ -127,7 +127,7 @@ p_sedimentation_violin <-
     data = .,
     var_y = "sedimentation_rate",
     var_x = "region_label",
-    custom_pallete = pal_region,
+    custom_palette = pal_region,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     default_color = gray_dark, # [Config]
@@ -153,7 +153,7 @@ p_sedimentation_bar <-
     data = data_sedimentation_binned,
     var_x = "sedimentation_rate_binned",
     var_fill = "sedimentation_rate_char",
-    custom_pallete = pal_sedimentation,
+    custom_palette = pal_sedimentation,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]

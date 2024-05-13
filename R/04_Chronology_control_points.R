@@ -96,7 +96,7 @@ p_chron_con_count_bar <-
     data = data_chron_control,
     var_x = "n_chron_control_binned",
     var_fill = "n_chron_control_char",
-    custom_pallete = pal_chron_control,
+    custom_palette = pal_chron_control,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]

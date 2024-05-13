@@ -64,7 +64,7 @@ p_region_map <-
     line_size = line_size, # [Config]
     map_color_fill = map_color_fill, # [Config]
     map_color_border = map_color_border, # [Config]
-    custom_pallete = pal_region,
+    custom_palette = pal_region,
     caption_label = TRUE
   )
 
@@ -76,7 +76,7 @@ p_region_bar <-
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
     legend_position = "none",
-    custom_pallete = pal_region,
+    custom_palette = pal_region,
     caption_label = FALSE
   ) +
   ggplot2::theme(
@@ -98,7 +98,7 @@ p_region_bar_long <-
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
     legend_position = "none",
-    custom_pallete = pal_region,
+    custom_palette = pal_region,
     x_label_angle = 0,
     plot_number_of_records = FALSE,
     caption_label = FALSE
@@ -129,7 +129,7 @@ p_region_bar_lat <-
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
     legend_position = "none",
-    custom_pallete = pal_region,
+    custom_palette = pal_region,
     x_label_angle = 0,
     plot_number_of_records = FALSE,
     caption_label = FALSE
