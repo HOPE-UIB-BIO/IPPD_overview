@@ -1,7 +1,7 @@
 plot_data_distribution_by_age <- function(data,
                                           coord_long,
                                           coord_lat,
-                                          bin_size = 10e3,
+                                          vec_breaks,
                                           limits = c(0, 50e3),
                                           ...) {
   if (
@@ -26,23 +26,8 @@ plot_data_distribution_by_age <- function(data,
     ymax <- max(coord_lat)
   }
 
-  data_w <-
-    data %>%
-    dplyr::mutate(
-      age_young = purrr::map_dbl(
-        .x = age_range,
-        .f = ~ min(.x)
-      ),
-      age_old = purrr::map_dbl(
-        .x = age_range,
-        .f = ~ max(.x)
-      ),
-      age_mid = c(age_young + age_old) / 2,
-      age_lenght = abs(age_young - age_old)
-    )
-
   p_a <-
-    data_w %>%
+    data %>%
     ggplot2::ggplot(
       mapping = ggplot2::aes(
         y = reorder(dataset_id, -age_mid),
@@ -59,14 +44,9 @@ plot_data_distribution_by_age <- function(data,
       legend.position = "none"
     ) +
     ggplot2::scale_x_continuous(
-      breaks = seq(
-        from = 0,
-        to = max(limits),
-        by = bin_size
-      )
+      breaks = vec_breaks
     ) +
     ggplot2::labs(
-      title = "Age distribution of records",
       x = "Age (cal yr BP)",
       y = "Records"
     ) +
@@ -76,80 +56,92 @@ plot_data_distribution_by_age <- function(data,
 
   p_1 <-
     plot_data_distribution_by_numbers(
-      data = data_w,
-      var = "age_young",
-      bin_size = bin_size,
+      data = data,
+      var = "age_young_lim",
       coord_long = coord_long,
       coord_lat = coord_lat,
       limits = c(min(limits), max(limits)),
       start_from = "min",
       caption_label = FALSE,
+      legend_position = "bottom",
       ...
     ) +
     ggplot2::labs(
-      title = "Distribution of the youngest level age",
-      subtitle = paste("Limit by", min(limits), "years")
+      title = "The youngest age"
     )
 
   p_2 <-
     plot_data_distribution_by_numbers(
-      data = data_w,
-      var = "age_old",
-      bin_size = bin_size,
+      data = data,
+      var = "age_old_lim",
       coord_long = coord_long,
       coord_lat = coord_lat,
       limits = c(min(limits), max(limits)),
       start_from = "min",
       caption_label = FALSE,
+      legend_position = "bottom",
       ...
     ) +
     ggplot2::labs(
-      title = "Distribution of the oldest level age",
-      subtitle = paste("Limit by", max(limits), "years")
+      title = "The oldest age"
     )
 
   p_3 <-
     plot_data_distribution_by_numbers(
-      data = data_w,
-      var = "age_lenght",
-      bin_size = bin_size,
+      data = data,
+      var = "age_lenght_lim",
       coord_long = coord_long,
       coord_lat = coord_lat,
       limits = c(min(limits), max(limits)),
       start_from = "min",
       caption_label = FALSE,
+      legend_position = "bottom",
       ...
     ) +
     ggplot2::labs(
-      title = "Distribution of the total lenght of record",
-      subtitle = paste("Limit by", max(limits), "years")
+      title = "The total lenght of record"
     )
 
   global_fig <-
-    cowplot::plot_grid(
-      p_1,
+    ggpubr::ggarrange(
+      p_1 +
+        ggplot2::theme(
+          legend.position = "none"
+        ),
       p_2 +
         ggplot2::theme(
           axis.text.y = ggplot2::element_blank(),
           axis.ticks.y = ggplot2::element_blank(),
-          axis.title.y = ggplot2::element_blank()
+          axis.title.y = ggplot2::element_blank(),
+          legend.position = "none"
         ),
       p_3 +
         ggplot2::theme(
           axis.text.y = ggplot2::element_blank(),
           axis.ticks.y = ggplot2::element_blank(),
-          axis.title.y = ggplot2::element_blank()
+          axis.title.y = ggplot2::element_blank(),
+          legend.position = "none"
         ),
       nrow = 1,
-      rel_widths = c(0.37, 0.3, 0.3),
+      widths = c(0.37, 0.3, 0.3),
       align = "h",
-      labels = "AUTO"
+      labels = "AUTO",
+      legend = "none"
     )
 
+  p_legend <-
+    cowplot::get_plot_component(p_3, "guide-box-bottom", return_all = TRUE)
+
   cowplot::plot_grid(
-    global_fig, p_a,
-    nrow = 2,
-    rel_heights = c(0.5, 0.5),
+    cowplot::plot_grid(
+      global_fig,
+      p_legend,
+      ncol = 1,
+      rel_heights = c(1, 0.2)
+    ),
+    p_a,
+    ncol = 1,
+    rel_heights = c(1, 1),
     labels = c("", "D")
   ) %>%
     return()

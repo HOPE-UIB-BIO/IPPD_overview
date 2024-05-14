@@ -101,6 +101,7 @@ sapply(
     "knitr",
     "languageserver",
     "maps",
+    "PrettyCols",
     "RColorBrewer",
     "renv",
     "remotes",

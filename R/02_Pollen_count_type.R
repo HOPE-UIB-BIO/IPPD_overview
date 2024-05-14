@@ -42,10 +42,23 @@ dplyr::glimpse(ippd_data_public)
 # 3. Create figure -----
 #----------------------------------------------------------#
 
+data_pollen_count <-
+  ippd_data_public %>%
+  add_pollen_count_label()
+
+pal_pollen_count <-
+  make_custom_palette(
+    data = data_pollen_count,
+    var = "pollen_percentage_label",
+    palette = sort(PrettyCols::PrettyColsPalettes[["Light"]][[1]])
+  )
+
 p_count_map <-
   plot_data_distribution_by_var(
-    data = ippd_data_public,
-    var = "pollen_percentage",
+    data = data_pollen_count,
+    var = "pollen_percentage_label",
+    point_alpha_outer = 0.5,
+    custom_palette = pal_pollen_count,
     coord_long = c(long_min, long_max), # [Config]
     coord_lat = c(lat_min, lat_max), # [Config]
     point_size = point_size, # [Config]
@@ -58,8 +71,9 @@ p_count_map <-
 
 p_count_bar <-
   plot_data_barplot(
-    data = ippd_data_public,
-    var_x = "pollen_percentage",
+    data = data_pollen_count,
+    var_x = "pollen_percentage_label",
+    custom_palette = pal_pollen_count,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -72,7 +86,7 @@ p_count_bar <-
 
 p_count_bar_long <-
   get_binned(
-    data_source = ippd_data_public,
+    data_source = data_pollen_count,
     var = "long",
     bin_size = 10,
     start_from = "min",
@@ -80,7 +94,8 @@ p_count_bar_long <-
   plot_data_barplot(
     data = .,
     var_x = "long",
-    var_fill = "pollen_percentage",
+    var_fill = "pollen_percentage_label",
+    custom_palette = pal_pollen_count,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -94,7 +109,7 @@ p_count_bar_long <-
   )
 
 p_count_bar_lat <-
-  ippd_data_public %>%
+  data_pollen_count %>%
   dplyr::mutate(
     lat_pos = lat * (-1)
   ) %>%
@@ -110,7 +125,8 @@ p_count_bar_lat <-
   plot_data_barplot(
     data = .,
     var_x = "lat",
-    var_fill = "pollen_percentage",
+    var_fill = "pollen_percentage_label",
+    custom_palette = pal_pollen_count,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]

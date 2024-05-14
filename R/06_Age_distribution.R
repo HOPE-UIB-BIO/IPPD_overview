@@ -24,6 +24,11 @@ source(
   here::here("R/00_Config_file.R")
 )
 
+verbose <- FALSE
+
+sel_limits <- c(0, 50e3)
+
+bin_value <- 10e3
 
 #----------------------------------------------------------#
 # 2. Load data  -----
@@ -35,18 +40,89 @@ ippd_data_public <-
   ) %>%
   purrr::pluck("data")
 
-dplyr::glimpse(ippd_data_public)
+if (
+  isTRUE(verbose)
+) {
+  dplyr::glimpse(ippd_data_public)
+}
 
 
 #----------------------------------------------------------#
 # 3. Create figure -----
 #----------------------------------------------------------#
 
+limit_values <- function(x, limit_vec) {
+  x[x < limit_vec[1]] <- limit_vec[1]
+  x[x > limit_vec[2]] <- limit_vec[2]
+  return(x)
+}
+
+data_age <-
+  ippd_data_public %>%
+  dplyr::mutate(
+    age_young = purrr::map_dbl(
+      .x = age_range,
+      .f = ~ min(.x)
+    ),
+    age_old = purrr::map_dbl(
+      .x = age_range,
+      .f = ~ max(.x)
+    ),
+    age_mid = c(age_young + age_old) / 2,
+    age_lenght = abs(age_young - age_old)
+  ) %>%
+  tidyr::drop_na(age_young, age_old, age_mid, age_lenght) %>%
+  dplyr::mutate(
+    dplyr::across(
+      .cols = c(age_young, age_old, age_mid, age_lenght),
+      .fns = ~ limit_values(.x, sel_limits),
+      .names = "{.col}_lim"
+    )
+  ) %>%
+  dplyr::mutate(
+    dplyr::across(
+      .cols = c(age_young_lim, age_old_lim, age_mid_lim, age_lenght_lim),
+      .fns = ~ floor(.x / bin_value) * bin_value,
+      .names = "{.col}_binned"
+    )
+  ) %>%
+  dplyr::mutate(
+    dplyr::across(
+      .cols = c(
+        age_young_lim_binned, age_old_lim_binned,
+        age_mid_lim_binned, age_lenght_lim_binned
+      ),
+      .fns = ~ as.character(.x),
+      .names = "{.col}_char"
+    )
+  )
+
+vec_age_bin <-
+  data_age %>%
+  dplyr::select(
+    age_young_lim_binned,
+    age_old_lim_binned,
+    age_mid_lim_binned,
+    age_lenght_lim_binned
+  ) %>%
+  unlist() %>%
+  unique() %>%
+  sort() %>%
+  as.character()
+
+pal_age <-
+  grDevices::colorRampPalette(
+    rev(PrettyCols::PrettyColsPalettes[["Tangerines"]][[1]])
+  )(length(vec_age_bin)) %>%
+  rlang::set_names(vec_age_bin)
+
 p_age_distr <-
   plot_data_distribution_by_age(
-    data = ippd_data_public,
-    bin_size = 10e3,
-    limits = c(0, 50e3),
+    data = data_age,
+    bin_size = bin_value,
+    limits = sel_limits,
+    vec_breaks = as.numeric(vec_age_bin),
+    custom_palette = pal_age,
     coord_long = c(long_min, long_max), # [Config]
     coord_lat = c(lat_min, lat_max), # [Config]
     point_size = point_size, # [Config]
@@ -69,7 +145,7 @@ purrr::walk(
     ),
     plot = p_age_distr,
     width = image_width, # [Config]
-    height = image_height * 1.25, # [Config]
+    height = image_height, # [Config]
     units = image_units, # [Config]
     dpi = image_dpi # [Config]
   )

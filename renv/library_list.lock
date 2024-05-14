@@ -53,6 +53,11 @@
       ],
       "Hash": "0776bf7526869e0286b0463cb72fb211"
     },
+    "PrettyCols": {
+      "Package": "PrettyCols",
+      "Version": "1.0.1",
+      "Source": "Repository"
+    },
     "R6": {
       "Package": "R6",
       "Version": "2.5.1",

@@ -61,6 +61,7 @@ package_list <-
     "knitr",
     "languageserver",
     "maps",
+    "PrettyCols",
     "RColorBrewer",
     "renv",
     "remotes",
