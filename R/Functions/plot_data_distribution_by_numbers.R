@@ -25,6 +25,14 @@ plot_data_distribution_by_numbers <- function(
       )
   }
 
+  max_value <-
+    data %>%
+    dplyr::pull(var) %>%
+    max()
+
+  max_size <-
+    sum(max_value > vec_breaks)
+
   p_spatial <-
     plot_data_distribution_spatial(
       data = data,
@@ -68,9 +76,11 @@ plot_data_distribution_by_numbers <- function(
 
   p_size <-
     p_color +
-    ggplot2::scale_size_continuous(
+    ggplot2::scale_size(
       breaks = vec_breaks,
-      labels = vec_breaks
+      labels = vec_breaks,
+      range = c(1, max_size),
+      guide = "legend"
     ) +
     ggplot2::guides(
       color = ggplot2::guide_legend(
