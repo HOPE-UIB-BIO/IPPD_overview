@@ -1,0 +1,956 @@
+region,var_name,value
+Australia above 500m,MAT,10.72083352
+Australia above 500m,MTCO,3.230000043
+Australia above 500m,MTWA,18.36666724
+Australia above 500m,MAP,1020.960021
+Australia above 500m,CMIA,96.18594264
+New Zealand and Islands South,MAT,7.62583346
+New Zealand and Islands South,MTCO,3.306666724
+New Zealand and Islands South,MTWA,12.83333359
+New Zealand and Islands South,MAP,1064.046684
+New Zealand and Islands South,CMIA,96.54401122
+Australia tropical,MAT,25.6933337
+Australia tropical,MTCO,19.8633337
+Australia tropical,MTWA,29.69333363
+Australia tropical,MAP,1052.986684
+Australia tropical,CMIA,93.7846633
+New Guinea highland,MAT,21.15833369
+New Guinea highland,MTCO,20.41333376
+New Guinea highland,MTWA,21.58333384
+New Guinea highland,MAP,3194.343383
+New Guinea highland,CMIA,98.55160634
+Australia Tasmania,MAT,12.24750023
+Australia Tasmania,MTCO,9.183333603
+Australia Tasmania,MTWA,15.89666697
+Australia Tasmania,MAP,1166.16002
+Australia Tasmania,CMIA,96.96798232
+Australia east coast,MAT,16.29083359
+Australia east coast,MTCO,8.156666867
+Australia east coast,MTWA,24.26666705
+Australia east coast,MAP,670.3066777
+Australia east coast,CMIA,91.90775683
+Australia south coast,MAT,15.6536114
+Australia south coast,MTCO,10.62333358
+Australia south coast,MTWA,20.92333361
+Australia south coast,MAP,537.9666767
+Australia south coast,CMIA,90.23904852
+New Guinea lowland,MAT,23.77861148
+New Guinea lowland,MTCO,23.12666683
+New Guinea lowland,MTWA,24.39666697
+New Guinea lowland,MAP,3349.810048
+New Guinea lowland,CMIA,98.8415325
+Australia arid,MAT,23.14222257
+Australia arid,MTCO,13.93333349
+Australia arid,MTWA,30.82000046
+Australia arid,MAP,234.2733373
+Australia arid,CMIA,69.68010548
+West Pacific,MAT,23.58611154
+West Pacific,MTCO,21.54333388
+West Pacific,MTWA,25.45000044
+West Pacific,MAP,2977.250055
+Maritime SE Asia,MAT,25.43527813
+Maritime SE Asia,MTCO,24.99666716
+Maritime SE Asia,MTWA,25.82333368
+Maritime SE Asia,MAP,2215.436703
+Maritime SE Asia,CMIA,98.10812317
+New Caledonia,MAT,22.6250004
+New Caledonia,MTCO,19.51666705
+New Caledonia,MTWA,25.63000056
+New Caledonia,MAP,1255.386686
+New Caledonia,CMIA,97.05856884
+New Zealand North,MAT,15.06388915
+New Zealand North,MTCO,10.82000014
+New Zealand North,MTWA,19.51666705
+New Zealand North,MAP,1182.22002
+Australia SW,MAT,15.01555587
+Australia SW,MTCO,10.23000021
+Australia SW,MTWA,20.23333378
+Australia SW,MAP,667.3766775
+Australia SW,CMIA,92.32306494
+Australia above 500m,MAT,9.51388903
+Australia above 500m,MTCO,2.360000034
+Australia above 500m,MTWA,16.65000019
+Australia above 500m,MAP,1067.446686
+Australia above 500m,CMIA,96.31800496
+New Zealand and Islands South,MAT,6.759166791
+New Zealand and Islands South,MTCO,1.450000038
+New Zealand and Islands South,MTWA,11.92333358
+New Zealand and Islands South,MAP,2623.363379
+New Zealand and Islands South,CMIA,98.56229287
+Australia tropical,MAT,26.68388926
+Australia tropical,MTCO,21.25666695
+Australia tropical,MTWA,30.38666712
+Australia tropical,MAP,1148.886682
+Australia tropical,CMIA,94.3423488
+New Guinea highland,MAT,20.08333369
+New Guinea highland,MTCO,19.32333374
+New Guinea highland,MTWA,20.45333379
+New Guinea highland,MAP,3100.933373
+New Guinea highland,CMIA,98.35275399
+Australia Tasmania,MAT,12.94055578
+Australia Tasmania,MTCO,9.866666857
+Australia Tasmania,MTWA,16.62333358
+Australia Tasmania,MAP,1007.36002
+Australia Tasmania,CMIA,97.14125919
+Australia east coast,MAT,13.96194467
+Australia east coast,MTCO,7.016666778
+Australia east coast,MTWA,20.63333371
+Australia east coast,MAP,900.5033489
+Australia east coast,CMIA,93.74976094
+Australia south coast,MAT,17.38527809
+Australia south coast,MTCO,8.930000226
+Australia south coast,MTWA,25.6966671
+Australia south coast,MAP,289.0533381
+Australia south coast,CMIA,79.14687025
+New Guinea lowland,MAT,26.91055593
+New Guinea lowland,MTCO,26.20666695
+New Guinea lowland,MTWA,27.48000024
+New Guinea lowland,MAP,3347.05672
+New Guinea lowland,CMIA,98.87154585
+Australia arid,MAT,17.72277804
+Australia arid,MTCO,11.87666686
+Australia arid,MTWA,22.96000035
+Australia arid,MAP,261.6266711
+Australia arid,CMIA,77.64626443
+West Pacific,MAT,24.36722262
+West Pacific,MTCO,22.3200002
+West Pacific,MTWA,26.34000041
+West Pacific,MAP,2831.810043
+Maritime SE Asia,MAT,26.31916704
+Maritime SE Asia,MTCO,25.43000037
+Maritime SE Asia,MTWA,27.11000042
+Maritime SE Asia,MAP,2940.646712
+Maritime SE Asia,CMIA,98.58651697
+New Caledonia,MAT,21.70666704
+New Caledonia,MTCO,18.54000028
+New Caledonia,MTWA,24.78000018
+New Caledonia,MAP,1177.070018
+New Caledonia,CMIA,97.33490308
+New Zealand North,MAT,13.69305583
+New Zealand North,MTCO,8.913333559
+New Zealand North,MTWA,18.6466671
+New Zealand North,MAP,1341.906686
+Australia SW,MAT,15.62222248
+Australia SW,MTCO,10.71000016
+Australia SW,MTWA,20.58333365
+Australia SW,MAP,510.2266756
+Australia SW,CMIA,91.57237305
+Australia above 500m,MAT,9.51388903
+Australia above 500m,MTCO,2.360000034
+Australia above 500m,MTWA,16.65000019
+Australia above 500m,MAP,1067.446686
+Australia above 500m,CMIA,96.31800496
+New Zealand and Islands South,MAT,6.12305568
+New Zealand and Islands South,MTCO,-0.443333345
+New Zealand and Islands South,MTWA,12.13333362
+New Zealand and Islands South,MAP,2955.623388
+New Zealand and Islands South,CMIA,99.16915439
+Australia tropical,MAT,28.64500042
+Australia tropical,MTCO,23.41000042
+Australia tropical,MTWA,32.32666766
+Australia tropical,MAP,972.6833505
+Australia tropical,CMIA,93.44767911
+New Guinea highland,MAT,20.7550004
+New Guinea highland,MTCO,19.79666741
+New Guinea highland,MTWA,21.33666725
+New Guinea highland,MAP,3591.59004
+New Guinea highland,CMIA,98.51792981
+Australia Tasmania,MAT,12.94055578
+Australia Tasmania,MTCO,9.866666857
+Australia Tasmania,MTWA,16.62333358
+Australia Tasmania,MAP,1007.36002
+Australia Tasmania,CMIA,97.14125919
+Australia east coast,MAT,13.81083358
+Australia east coast,MTCO,7.156666724
+Australia east coast,MTWA,20.17000039
+Australia east coast,MAP,994.6400178
+Australia east coast,CMIA,93.61868204
+Australia south coast,MAT,17.38527809
+Australia south coast,MTCO,8.930000226
+Australia south coast,MTWA,25.6966671
+Australia south coast,MAP,289.0533381
+Australia south coast,CMIA,79.14687025
+New Guinea lowland,MAT,26.97972258
+New Guinea lowland,MTCO,26.69666697
+New Guinea lowland,MTWA,27.26000023
+New Guinea lowland,MAP,2833.130027
+New Guinea lowland,CMIA,98.59389909
+Australia arid,MAT,17.10777804
+Australia arid,MTCO,8.276666816
+Australia arid,MTWA,25.74000041
+Australia arid,MAP,281.3400056
+Australia arid,CMIA,77.94957468
+West Pacific,MAT,23.56944488
+West Pacific,MTCO,21.53666725
+West Pacific,MTWA,25.45333379
+West Pacific,MAP,2909.376711
+New Zealand North,MAT,14.23611136
+New Zealand North,MTCO,9.926666895
+New Zealand North,MTWA,18.63666719
+New Zealand North,MAP,2137.336701
+Australia above 500m,MAT,9.51388903
+Australia above 500m,MTCO,2.360000034
+Australia above 500m,MTWA,16.65000019
+Australia above 500m,MAP,1067.446686
+Australia above 500m,CMIA,96.31800496
+New Zealand and Islands South,MAT,7.274444561
+New Zealand and Islands South,MTCO,-0.043333336
+New Zealand and Islands South,MTWA,13.73333343
+New Zealand and Islands South,MAP,943.3866831
+New Zealand and Islands South,CMIA,97.39237358
+Australia tropical,MAT,27.63361152
+Australia tropical,MTCO,24.65666714
+Australia tropical,MTWA,29.9466671
+Australia tropical,MAP,1417.233356
+Australia tropical,CMIA,95.96974185
+New Guinea highland,MAT,22.81111136
+New Guinea highland,MTCO,21.99000003
+New Guinea highland,MTWA,23.29333375
+New Guinea highland,MAP,2479.620021
+New Guinea highland,CMIA,98.05454061
+Australia Tasmania,MAT,8.400833476
+Australia Tasmania,MTCO,4.386666711
+Australia Tasmania,MTWA,13.19000022
+Australia Tasmania,MAP,1607.300022
+Australia Tasmania,CMIA,97.24081516
+Australia east coast,MAT,13.81083358
+Australia east coast,MTCO,7.156666724
+Australia east coast,MTWA,20.17000039
+Australia east coast,MAP,994.6400178
+Australia east coast,CMIA,93.61868204
+Australia south coast,MAT,17.38527809
+Australia south coast,MTCO,8.930000226
+Australia south coast,MTWA,25.6966671
+Australia south coast,MAP,289.0533381
+Australia south coast,CMIA,79.14687025
+New Guinea lowland,MAT,24.60416711
+New Guinea lowland,MTCO,23.79000053
+New Guinea lowland,MTWA,25.09333343
+New Guinea lowland,MAP,2009.536686
+New Guinea lowland,CMIA,97.76349769
+Australia arid,MAT,19.38250031
+Australia arid,MTCO,10.67000017
+Australia arid,MTWA,27.75666707
+Australia arid,MAP,215.210004
+Australia arid,CMIA,71.73613378
+West Pacific,MAT,24.77638929
+West Pacific,MTCO,22.62333387
+West Pacific,MTWA,26.84000041
+West Pacific,MAP,2374.3167
+New Zealand North,MAT,14.23611136
+New Zealand North,MTCO,9.926666895
+New Zealand North,MTWA,18.63666719
+New Zealand North,MAP,2137.336701
+Australia above 500m,MAT,9.51388903
+Australia above 500m,MTCO,2.360000034
+Australia above 500m,MTWA,16.65000019
+Australia above 500m,MAP,1067.446686
+Australia above 500m,CMIA,96.31800496
+New Zealand and Islands South,MAT,7.865277899
+New Zealand and Islands South,MTCO,0.966666691
+New Zealand and Islands South,MTWA,13.93000024
+New Zealand and Islands South,MAP,613.9133429
+New Zealand and Islands South,CMIA,98.72691574
+Australia tropical,MAT,26.91694482
+Australia tropical,MTCO,22.90000044
+Australia tropical,MTWA,29.62666709
+Australia tropical,MAP,1264.56003
+Australia tropical,CMIA,95.7056201
+New Guinea highland,MAT,22.81111136
+New Guinea highland,MTCO,21.99000003
+New Guinea highland,MTWA,23.29333375
+New Guinea highland,MAP,2479.620021
+New Guinea highland,CMIA,98.05454061
+Australia Tasmania,MAT,8.400833476
+Australia Tasmania,MTCO,4.386666711
+Australia Tasmania,MTWA,13.19000022
+Australia Tasmania,MAP,1607.300022
+Australia Tasmania,CMIA,97.24081516
+Australia east coast,MAT,13.81083358
+Australia east coast,MTCO,7.156666724
+Australia east coast,MTWA,20.17000039
+Australia east coast,MAP,994.6400178
+Australia east coast,CMIA,93.61868204
+Australia south coast,MAT,14.24666692
+Australia south coast,MTCO,10.42000011
+Australia south coast,MTWA,18.32000058
+Australia south coast,MAP,707.7400121
+Australia south coast,CMIA,95.09141774
+New Guinea lowland,MAT,26.26361155
+New Guinea lowland,MTCO,25.98666674
+New Guinea lowland,MTWA,26.5100001
+New Guinea lowland,MAP,3945.023372
+New Guinea lowland,CMIA,99.067348139999993
+Australia arid,MAT,19.38250031
+Australia arid,MTCO,10.67000017
+Australia arid,MTWA,27.75666707
+Australia arid,MAP,215.210004
+Australia arid,CMIA,71.73613378
+West Pacific,MAT,24.58388921
+West Pacific,MTCO,22.76666692
+West Pacific,MTWA,26.16333357
+West Pacific,MAP,2762.633375
+New Zealand North,MAT,11.90805577
+New Zealand North,MTCO,6.820000172
+New Zealand North,MTWA,16.97333377
+New Zealand North,MAP,1738.700031
+Australia above 500m,MAT,9.51388903
+Australia above 500m,MTCO,2.360000034
+Australia above 500m,MTWA,16.65000019
+Australia above 500m,MAP,1067.446686
+Australia above 500m,CMIA,96.31800496
+New Zealand and Islands South,MAT,7.473611217
+New Zealand and Islands South,MTCO,1.566666681
+New Zealand and Islands South,MTWA,12.82333352
+New Zealand and Islands South,MAP,646.4133452
+New Zealand and Islands South,CMIA,96.48470537
+Australia tropical,MAT,27.18916706
+Australia tropical,MTCO,21.95000044
+Australia tropical,MTWA,30.74333375
+Australia tropical,MAP,953.1433518
+Australia tropical,CMIA,95.39387455
+Australia Tasmania,MAT,10.20972239
+Australia Tasmania,MTCO,6.576666768
+Australia Tasmania,MTWA,14.23000018
+Australia Tasmania,MAP,1522.343356
+Australia Tasmania,CMIA,98.09390489
+Australia east coast,MAT,13.81083358
+Australia east coast,MTCO,7.156666724
+Australia east coast,MTWA,20.17000039
+Australia east coast,MAP,994.6400178
+Australia east coast,CMIA,93.61868204
+Australia south coast,MAT,14.24666692
+Australia south coast,MTCO,10.42000011
+Australia south coast,MTWA,18.32000058
+Australia south coast,MAP,707.7400121
+Australia south coast,CMIA,95.09141774
+Australia arid,MAT,18.51500029
+Australia arid,MTCO,9.52000014
+Australia arid,MTWA,27.25666701
+Australia arid,MAP,236.9900044
+Australia arid,CMIA,73.53052879
+West Pacific,MAT,25.49361155
+West Pacific,MTCO,23.27666708
+West Pacific,MTWA,27.83333371
+West Pacific,MAP,1844.656696
+New Zealand North,MAT,11.90805577
+New Zealand North,MTCO,6.820000172
+New Zealand North,MTWA,16.97333377
+New Zealand North,MAP,1738.700031
+Australia above 500m,MAT,13.45666694
+Australia above 500m,MTCO,5.693333467
+Australia above 500m,MTWA,21.43333384
+Australia above 500m,MAP,765.3066799
+Australia above 500m,CMIA,94.96193247
+New Zealand and Islands South,MAT,9.415000171
+New Zealand and Islands South,MTCO,4.903333426
+New Zealand and Islands South,MTWA,14.06333357
+New Zealand and Islands South,MAP,4223.076742
+New Zealand and Islands South,CMIA,99.54511837
+Australia tropical,MAT,27.32388928
+Australia tropical,MTCO,26.22000046
+Australia tropical,MTWA,28.19333382
+Australia tropical,MAP,2935.823369
+Australia tropical,CMIA,98.42451917
+Australia Tasmania,MAT,12.2247224
+Australia Tasmania,MTCO,7.993333467
+Australia Tasmania,MTWA,16.94666678
+Australia Tasmania,MAP,1206.153354
+Australia Tasmania,CMIA,96.54655876
+Australia east coast,MAT,13.81083358
+Australia east coast,MTCO,7.156666724
+Australia east coast,MTWA,20.17000039
+Australia east coast,MAP,994.6400178
+Australia east coast,CMIA,93.61868204
+Australia south coast,MAT,13.9080558
+Australia south coast,MTCO,9.650000127
+Australia south coast,MTWA,18.52333355
+Australia south coast,MAP,681.7800109
+Australia south coast,CMIA,94.8037979
+Australia arid,MAT,18.51500029
+Australia arid,MTCO,9.52000014
+Australia arid,MTWA,27.25666701
+Australia arid,MAP,236.9900044
+Australia arid,CMIA,73.53052879
+Australia above 500m,MAT,10.72083352
+Australia above 500m,MTCO,3.230000043
+Australia above 500m,MTWA,18.36666724
+Australia above 500m,MAP,1020.960021
+Australia above 500m,CMIA,96.18594264
+New Zealand and Islands South,MAT,8.653055692
+New Zealand and Islands South,MTCO,2.713333368
+New Zealand and Islands South,MTWA,14.23333349
+New Zealand and Islands South,MAP,1275.393356
+Australia tropical,MAT,26.87027817
+Australia tropical,MTCO,25.31333364
+Australia tropical,MTWA,28.17000033
+Australia tropical,MAP,2023.646702
+Australia tropical,CMIA,97.54156687
+Australia Tasmania,MAT,10.02166683
+Australia Tasmania,MTCO,6.086666759
+Australia Tasmania,MTWA,14.39666688
+Australia Tasmania,MAP,1669.790029
+Australia Tasmania,CMIA,97.80233315
+Australia east coast,MAT,16.37111142
+Australia east coast,MTCO,10.42333352
+Australia east coast,MTWA,21.73666706
+Australia east coast,MAP,1034.803353
+Australia east coast,CMIA,96.02855293
+Australia south coast,MAT,13.99138913
+Australia south coast,MTCO,10.23333356
+Australia south coast,MTWA,18.08666693
+Australia south coast,MAP,756.7233451
+Australia south coast,CMIA,95.41223783
+Australia arid,MAT,20.78250031
+Australia arid,MTCO,12.18666677
+Australia arid,MTWA,29.05666707
+Australia arid,MAP,174.6733367
+Australia arid,CMIA,62.4858828
+Australia above 500m,MAT,12.09611133
+Australia above 500m,MTCO,4.490000089
+Australia above 500m,MTWA,19.8733338
+Australia above 500m,MAP,841.2200156
+Australia above 500m,CMIA,94.13403748
+New Zealand and Islands South,MAT,9.192222392
+New Zealand and Islands South,MTCO,4.460000062
+New Zealand and Islands South,MTWA,14.15666695
+New Zealand and Islands South,MAP,2591.090038
+Australia tropical,MAT,26.87027817
+Australia tropical,MTCO,25.31333364
+Australia tropical,MTWA,28.17000033
+Australia tropical,MAP,2023.646702
+Australia tropical,CMIA,97.54156687
+Australia Tasmania,MAT,8.400833476
+Australia Tasmania,MTCO,4.386666711
+Australia Tasmania,MTWA,13.19000022
+Australia Tasmania,MAP,1607.300022
+Australia Tasmania,CMIA,97.24081516
+Australia east coast,MAT,16.37111142
+Australia east coast,MTCO,10.42333352
+Australia east coast,MTWA,21.73666706
+Australia east coast,MAP,1034.803353
+Australia east coast,CMIA,96.02855293
+Australia south coast,MAT,17.77694472
+Australia south coast,MTCO,10.44666684
+Australia south coast,MTWA,25.22000039
+Australia south coast,MAP,239.8533376
+Australia south coast,CMIA,80.16287733
+Australia arid,MAT,19.51083368
+Australia arid,MTCO,10.98333349
+Australia arid,MTWA,27.97333374
+Australia arid,MAP,233.5633377
+Australia arid,CMIA,74.13406789
+Australia above 500m,MAT,9.776111266
+Australia above 500m,MTCO,2.780000047
+Australia above 500m,MTWA,16.91666708
+Australia above 500m,MAP,997.4366826
+Australia above 500m,CMIA,96.30477427
+New Zealand and Islands South,MAT,9.766111265
+New Zealand and Islands South,MTCO,4.55666674
+New Zealand and Islands South,MTWA,15.05333354
+New Zealand and Islands South,MAP,1974.266701
+Australia tropical,MAT,26.87027817
+Australia tropical,MTCO,25.31333364
+Australia tropical,MTWA,28.17000033
+Australia tropical,MAP,2023.646702
+Australia tropical,CMIA,97.54156687
+Australia Tasmania,MAT,10.24305573
+Australia Tasmania,MTCO,6.406666756
+Australia Tasmania,MTWA,14.83333362
+Australia Tasmania,MAP,804.3933464
+Australia Tasmania,CMIA,96.01314447
+Australia east coast,MAT,17.08388919
+Australia east coast,MTCO,10.57333358
+Australia east coast,MTWA,22.93333365
+Australia east coast,MAP,958.946684
+Australia east coast,CMIA,95.69110552
+Australia south coast,MAT,13.99138913
+Australia south coast,MTCO,10.23333356
+Australia south coast,MTWA,18.08666693
+Australia south coast,MAP,756.7233451
+Australia south coast,CMIA,95.41223783
+Australia arid,MAT,17.02750032
+Australia arid,MTCO,9.023333454
+Australia arid,MTWA,24.99000041
+Australia arid,MAP,389.4866738
+Australia arid,CMIA,88.46082984
+Australia above 500m,MAT,12.09611133
+Australia above 500m,MTCO,4.490000089
+Australia above 500m,MTWA,19.8733338
+Australia above 500m,MAP,841.2200156
+Australia above 500m,CMIA,94.13403748
+Australia tropical,MAT,26.87027817
+Australia tropical,MTCO,25.31333364
+Australia tropical,MTWA,28.17000033
+Australia tropical,MAP,2023.646702
+Australia tropical,CMIA,97.54156687
+Australia Tasmania,MAT,9.603889049
+Australia Tasmania,MTCO,6.093333435
+Australia Tasmania,MTWA,13.5366669
+Australia Tasmania,MAP,1343.766689
+Australia Tasmania,CMIA,97.46969359
+Australia east coast,MAT,17.08388919
+Australia east coast,MTCO,10.57333358
+Australia east coast,MTWA,22.93333365
+Australia east coast,MAP,958.946684
+Australia east coast,CMIA,95.69110552
+Australia south coast,MAT,13.99138913
+Australia south coast,MTCO,10.23333356
+Australia south coast,MTWA,18.08666693
+Australia south coast,MAP,756.7233451
+Australia south coast,CMIA,95.41223783
+Australia arid,MAT,20.17222258
+Australia arid,MTCO,11.47666696
+Australia arid,MTWA,28.4233338
+Australia arid,MAP,462.2066728
+Australia arid,CMIA,87.92170886
+Australia above 500m,MAT,8.745555684
+Australia above 500m,MTCO,1.54333337
+Australia above 500m,MTWA,16.05000025
+Australia above 500m,MAP,1119.823353
+Australia above 500m,CMIA,94.90660391
+Australia tropical,MAT,26.87027817
+Australia tropical,MTCO,25.31333364
+Australia tropical,MTWA,28.17000033
+Australia tropical,MAP,2023.646702
+Australia tropical,CMIA,97.54156687
+Australia Tasmania,MAT,8.476111248
+Australia Tasmania,MTCO,4.100000103
+Australia Tasmania,MTWA,13.4200002
+Australia Tasmania,MAP,1414.573357
+Australia Tasmania,CMIA,97.66833728
+Australia east coast,MAT,16.47250034
+Australia east coast,MTCO,9.780000178
+Australia east coast,MTWA,22.57000033
+Australia east coast,MAP,897.1333492
+Australia east coast,CMIA,95.36895296
+Australia south coast,MAT,13.99138913
+Australia south coast,MTCO,10.23333356
+Australia south coast,MTWA,18.08666693
+Australia south coast,MAP,756.7233451
+Australia south coast,CMIA,95.41223783
+Australia above 500m,MAT,11.33944464
+Australia above 500m,MTCO,5.310000086
+Australia above 500m,MTWA,17.296667
+Australia above 500m,MAP,758.6733469
+Australia above 500m,CMIA,95.25362092
+Australia tropical,MAT,26.87027817
+Australia tropical,MTCO,25.31333364
+Australia tropical,MTWA,28.17000033
+Australia tropical,MAP,2023.646702
+Australia tropical,CMIA,97.54156687
+Australia Tasmania,MAT,12.12388914
+Australia Tasmania,MTCO,8.100000159
+Australia Tasmania,MTWA,16.73000037
+Australia Tasmania,MAP,1064.046684
+Australia Tasmania,CMIA,96.51475476
+Australia east coast,MAT,17.08388919
+Australia east coast,MTCO,10.57333358
+Australia east coast,MTWA,22.93333365
+Australia east coast,MAP,958.946684
+Australia east coast,CMIA,95.69110552
+Australia south coast,MAT,17.72416691
+Australia south coast,MTCO,10.2366669
+Australia south coast,MTWA,25.23666687
+Australia south coast,MAP,253.0000042
+Australia south coast,CMIA,80.10907836
+Australia above 500m,MAT,8.745555684
+Australia above 500m,MTCO,1.54333337
+Australia above 500m,MTWA,16.05000025
+Australia above 500m,MAP,1119.823353
+Australia above 500m,CMIA,94.90660391
+Australia tropical,MAT,26.87027817
+Australia tropical,MTCO,25.31333364
+Australia tropical,MTWA,28.17000033
+Australia tropical,MAP,2023.646702
+Australia tropical,CMIA,97.54156687
+Australia Tasmania,MAT,7.62583346
+Australia Tasmania,MTCO,3.306666724
+Australia Tasmania,MTWA,12.83333359
+Australia Tasmania,MAP,1064.046684
+Australia Tasmania,CMIA,96.54401122
+Australia east coast,MAT,17.81527808
+Australia east coast,MTCO,12.03666687
+Australia east coast,MTWA,22.90000032
+Australia east coast,MAP,1072.290021
+Australia east coast,CMIA,95.90103447
+Australia south coast,MAT,14.1730558
+Australia south coast,MTCO,10.26333357
+Australia south coast,MTWA,18.53333371
+Australia south coast,MAP,759.6200148
+Australia south coast,CMIA,94.61314684
+Australia above 500m,MAT,8.745555684
+Australia above 500m,MTCO,1.54333337
+Australia above 500m,MTWA,16.05000025
+Australia above 500m,MAP,1119.823353
+Australia above 500m,CMIA,94.90660391
+Australia tropical,MAT,26.87027817
+Australia tropical,MTCO,25.31333364
+Australia tropical,MTWA,28.17000033
+Australia tropical,MAP,2023.646702
+Australia tropical,CMIA,97.54156687
+Australia Tasmania,MAT,8.476111248
+Australia Tasmania,MTCO,4.100000103
+Australia Tasmania,MTWA,13.4200002
+Australia Tasmania,MAP,1414.573357
+Australia Tasmania,CMIA,97.66833728
+Australia east coast,MAT,14.89361136
+Australia east coast,MTCO,7.833333524
+Australia east coast,MTWA,21.54666697
+Australia east coast,MAP,882.5766815
+Australia east coast,CMIA,94.70600552
+Australia south coast,MAT,14.22972248
+Australia south coast,MTCO,10.07333352
+Australia south coast,MTWA,18.7033336
+Australia south coast,MAP,738.7800136
+Australia south coast,CMIA,95.02016839
+Australia above 500m,MAT,8.745555684
+Australia above 500m,MTCO,1.54333337
+Australia above 500m,MTWA,16.05000025
+Australia above 500m,MAP,1119.823353
+Australia above 500m,CMIA,94.90660391
+Australia tropical,MAT,25.68944482
+Australia tropical,MTCO,22.8300003
+Australia tropical,MTWA,28.06000055
+Australia tropical,MAP,1334.420021
+Australia tropical,CMIA,96.12315962
+Australia Tasmania,MAT,9.430833482
+Australia Tasmania,MTCO,4.783333405
+Australia Tasmania,MTWA,14.23666687
+Australia Tasmania,MAP,1010.483348
+Australia Tasmania,CMIA,96.12484536
+Australia east coast,MAT,14.89361136
+Australia east coast,MTCO,7.833333524
+Australia east coast,MTWA,21.54666697
+Australia east coast,MAP,882.5766815
+Australia east coast,CMIA,94.70600552
+Australia south coast,MAT,14.10444471
+Australia south coast,MTCO,9.693333498
+Australia south coast,MTWA,18.72333387
+Australia south coast,MAP,704.1000111
+Australia south coast,CMIA,93.90740709
+Australia above 500m,MAT,8.745555684
+Australia above 500m,MTCO,1.54333337
+Australia above 500m,MTWA,16.05000025
+Australia above 500m,MAP,1119.823353
+Australia above 500m,CMIA,94.90660391
+Australia tropical,MAT,25.38027817
+Australia tropical,MTCO,21.77000046
+Australia tropical,MTWA,28.28333359
+Australia tropical,MAP,1236.91669
+Australia tropical,CMIA,95.78441016
+Australia Tasmania,MAT,9.430833482
+Australia Tasmania,MTCO,4.783333405
+Australia Tasmania,MTWA,14.23666687
+Australia Tasmania,MAP,1010.483348
+Australia Tasmania,CMIA,96.12484536
+Australia east coast,MAT,16.05777809
+Australia east coast,MTCO,9.353333537
+Australia east coast,MTWA,22.25333373
+Australia east coast,MAP,861.5000152
+Australia east coast,CMIA,95.20230537
+Australia south coast,MAT,16.53305585
+Australia south coast,MTCO,9.5033336
+Australia south coast,MTWA,23.90000038
+Australia south coast,MAP,315.0200055
+Australia south coast,CMIA,85.0788848
+Australia above 500m,MAT,12.29638908
+Australia above 500m,MTCO,6.526666753
+Australia above 500m,MTWA,17.92666702
+Australia above 500m,MAP,752.3000151
+Australia above 500m,CMIA,95.15825274
+Australia tropical,MAT,25.38027817
+Australia tropical,MTCO,21.77000046
+Australia tropical,MTWA,28.28333359
+Australia tropical,MAP,1236.91669
+Australia tropical,CMIA,95.78441016
+Australia Tasmania,MAT,9.430833482
+Australia Tasmania,MTCO,4.783333405
+Australia Tasmania,MTWA,14.23666687
+Australia Tasmania,MAP,1010.483348
+Australia Tasmania,CMIA,96.12484536
+Australia east coast,MAT,16.05777809
+Australia east coast,MTCO,9.353333537
+Australia east coast,MTWA,22.25333373
+Australia east coast,MAP,861.5000152
+Australia east coast,CMIA,95.20230537
+Australia south coast,MAT,14.10444471
+Australia south coast,MTCO,9.693333498
+Australia south coast,MTWA,18.72333387
+Australia south coast,MAP,704.1000111
+Australia south coast,CMIA,93.90740709
+Australia above 500m,MAT,13.30500025
+Australia above 500m,MTCO,5.930000099
+Australia above 500m,MTWA,20.81000048
+Australia above 500m,MAP,738.6600137
+Australia above 500m,CMIA,93.97530767
+Australia tropical,MAT,25.38027817
+Australia tropical,MTCO,21.77000046
+Australia tropical,MTWA,28.28333359
+Australia tropical,MAP,1236.91669
+Australia tropical,CMIA,95.78441016
+Australia Tasmania,MAT,8.589166811
+Australia Tasmania,MTCO,3.913333376
+Australia Tasmania,MTWA,13.75666691
+Australia Tasmania,MAP,1002.050019
+Australia Tasmania,CMIA,95.45518908
+Australia east coast,MAT,16.05777809
+Australia east coast,MTCO,9.353333537
+Australia east coast,MTWA,22.25333373
+Australia east coast,MAP,861.5000152
+Australia east coast,CMIA,95.20230537
+Australia south coast,MAT,13.5986114
+Australia south coast,MTCO,8.993333562
+Australia south coast,MTWA,18.33000049
+Australia south coast,MAP,676.3833456
+Australia south coast,CMIA,94.47157677
+Australia above 500m,MAT,12.68083354
+Australia above 500m,MTCO,5.293333451
+Australia above 500m,MTWA,20.14666697
+Australia above 500m,MAP,784.0833475
+Australia above 500m,CMIA,94.38363123
+Australia tropical,MAT,21.16777816
+Australia tropical,MTCO,16.48666706
+Australia tropical,MTWA,24.50333379
+Australia tropical,MAP,1320.123355
+Australia tropical,CMIA,96.07789171
+Australia Tasmania,MAT,9.340833482
+Australia Tasmania,MTCO,5.486666775
+Australia Tasmania,MTWA,13.44666681
+Australia Tasmania,MAP,1117.670019
+Australia Tasmania,CMIA,96.60429454
+Australia east coast,MAT,14.77222247
+Australia east coast,MTCO,8.273333486
+Australia east coast,MTWA,20.88666706
+Australia east coast,MAP,1019.516686
+Australia east coast,CMIA,95.21195049
+Australia south coast,MAT,13.5986114
+Australia south coast,MTCO,8.993333562
+Australia south coast,MTWA,18.33000049
+Australia south coast,MAP,676.3833456
+Australia south coast,CMIA,94.47157677
+Australia above 500m,MAT,14.36388916
+Australia above 500m,MTCO,8.420000172
+Australia above 500m,MTWA,19.936667
+Australia above 500m,MAP,793.0166796
+Australia above 500m,CMIA,95.56998734
+Australia tropical,MAT,25.58500044
+Australia tropical,MTCO,22.61666711
+Australia tropical,MTWA,27.86000048
+Australia tropical,MAP,1860.036707
+Australia tropical,CMIA,97.19181165
+Australia Tasmania,MAT,9.340833482
+Australia Tasmania,MTCO,5.486666775
+Australia Tasmania,MTWA,13.44666681
+Australia Tasmania,MAP,1117.670019
+Australia Tasmania,CMIA,96.60429454
+Australia east coast,MAT,16.49722251
+Australia east coast,MTCO,10.26333351
+Australia east coast,MTWA,22.17000027
+Australia east coast,MAP,1018.780017
+Australia east coast,CMIA,95.47790527
+Australia south coast,MAT,13.5986114
+Australia south coast,MTCO,8.993333562
+Australia south coast,MTWA,18.33000049
+Australia south coast,MAP,676.3833456
+Australia south coast,CMIA,94.47157677
+Australia above 500m,MAT,13.16388911
+Australia above 500m,MTCO,6.336666807
+Australia above 500m,MTWA,19.90666682
+Australia above 500m,MAP,808.8100139
+Australia above 500m,CMIA,93.7449164
+Australia tropical,MAT,21.69027814
+Australia tropical,MTCO,17.61666711
+Australia tropical,MTWA,24.52666708
+Australia tropical,MAP,2127.243371
+Australia tropical,CMIA,97.56736305
+Australia Tasmania,MAT,10.98555576
+Australia Tasmania,MTCO,6.303333426
+Australia Tasmania,MTWA,15.68666696
+Australia Tasmania,MAP,646.5866773
+Australia Tasmania,CMIA,96.14094322
+Australia east coast,MAT,17.87111143
+Australia east coast,MTCO,12.0433335
+Australia east coast,MTWA,23.11666711
+Australia east coast,MAP,1017.470019
+Australia east coast,CMIA,95.74762736
+Australia south coast,MAT,13.55111132
+Australia south coast,MTCO,9.733333492
+Australia south coast,MTWA,17.62333361
+Australia south coast,MAP,812.0000141
+Australia south coast,CMIA,95.51806241
+Australia above 500m,MAT,12.47083355
+Australia above 500m,MTCO,5.733333461
+Australia above 500m,MTWA,19.12000039
+Australia above 500m,MAP,879.803346
+Australia above 500m,CMIA,94.22192164
+Australia tropical,MAT,24.44277815
+Australia tropical,MTCO,20.75000057
+Australia tropical,MTWA,27.04666697
+Australia tropical,MAP,2039.563373
+Australia tropical,CMIA,97.35351849
+Australia Tasmania,MAT,11.88555578
+Australia Tasmania,MTCO,7.293333483
+Australia Tasmania,MTWA,16.79000034
+Australia Tasmania,MAP,660.3900121
+Australia Tasmania,CMIA,95.66288136
+Australia east coast,MAT,18.10722254
+Australia east coast,MTCO,12.44000022
+Australia east coast,MTWA,23.31000035
+Australia east coast,MAP,1206.153355
+Australia east coast,CMIA,96.60790675
+Australia south coast,MAT,13.44166692
+Australia south coast,MTCO,8.670000188
+Australia south coast,MTWA,18.20666726
+Australia south coast,MAP,660.203345
+Australia south coast,CMIA,93.6388592
+Australia above 500m,MAT,14.36388916
+Australia above 500m,MTCO,8.420000172
+Australia above 500m,MTWA,19.936667
+Australia above 500m,MAP,793.0166796
+Australia above 500m,CMIA,95.56998734
+Australia tropical,MAT,24.09361153
+Australia tropical,MTCO,19.41333383
+Australia tropical,MTWA,27.40333385
+Australia tropical,MAP,1769.283362
+Australia tropical,CMIA,96.8910199
+Australia Tasmania,MAT,10.82222241
+Australia Tasmania,MTCO,6.223333422
+Australia Tasmania,MTWA,15.44333366
+Australia Tasmania,MAP,539.5933418
+Australia Tasmania,CMIA,95.08728802
+Australia east coast,MAT,18.10722254
+Australia east coast,MTCO,12.44000022
+Australia east coast,MTWA,23.31000035
+Australia east coast,MAP,1206.153355
+Australia east coast,CMIA,96.60790675
+Australia south coast,MAT,13.44166692
+Australia south coast,MTCO,8.670000188
+Australia south coast,MTWA,18.20666726
+Australia south coast,MAP,660.203345
+Australia south coast,CMIA,93.6388592
+Australia above 500m,MAT,15.23888915
+Australia above 500m,MTCO,10.60333344
+Australia above 500m,MTWA,19.60000044
+Australia above 500m,MAP,888.0200134
+Australia above 500m,CMIA,96.09405918
+Australia tropical,MAT,26.26361155
+Australia tropical,MTCO,25.98666674
+Australia tropical,MTWA,26.5100001
+Australia tropical,MAP,3945.023372
+Australia tropical,CMIA,99.067348139999993
+Australia Tasmania,MAT,13.00305582
+Australia Tasmania,MTCO,9.063333575
+Australia Tasmania,MTWA,17.2566671
+Australia Tasmania,MAP,717.1000129
+Australia Tasmania,CMIA,95.47761819
+Australia east coast,MAT,21.62111149
+Australia east coast,MTCO,17.01000048
+Australia east coast,MTWA,25.43333378
+Australia east coast,MAP,1277.980023
+Australia east coast,CMIA,95.86795829
+Australia south coast,MAT,14.26388915
+Australia south coast,MTCO,9.600000254
+Australia south coast,MTWA,19.12666702
+Australia south coast,MAP,608.2900114
+Australia south coast,CMIA,93.59077634
+Australia above 500m,MAT,16.58472253
+Australia above 500m,MTCO,11.28000021
+Australia above 500m,MTWA,21.30666695
+Australia above 500m,MAP,1062.166684
+Australia above 500m,CMIA,96.30691982
+Australia Tasmania,MAT,13.43166691
+Australia Tasmania,MTCO,8.846666876
+Australia Tasmania,MTWA,18.08000037
+Australia Tasmania,MAP,701.6833437
+Australia Tasmania,CMIA,95.50984535
+Australia east coast,MAT,21.62111149
+Australia east coast,MTCO,17.01000048
+Australia east coast,MTWA,25.43333378
+Australia east coast,MAP,1277.980023
+Australia east coast,CMIA,95.86795829
+Australia south coast,MAT,13.17666691
+Australia south coast,MTCO,8.733333429
+Australia south coast,MTWA,17.93333375
+Australia south coast,MAP,851.5900159
+Australia south coast,CMIA,95.91237127
+Australia above 500m,MAT,16.37111142
+Australia above 500m,MTCO,10.42333352
+Australia above 500m,MTWA,21.73666706
+Australia above 500m,MAP,1034.803353
+Australia above 500m,CMIA,96.02855293
+Australia Tasmania,MAT,13.00305582
+Australia Tasmania,MTCO,9.063333575
+Australia Tasmania,MTWA,17.2566671
+Australia Tasmania,MAP,717.1000129
+Australia Tasmania,CMIA,95.47761819
+Australia east coast,MAT,21.62111149
+Australia east coast,MTCO,17.01000048
+Australia east coast,MTWA,25.43333378
+Australia east coast,MAP,1277.980023
+Australia east coast,CMIA,95.86795829
+Australia south coast,MAT,8.967500144
+Australia south coast,MTCO,2.56333338
+Australia south coast,MTWA,15.69000025
+Australia south coast,MAP,1218.366683
+Australia south coast,CMIA,96.13994028
+Australia above 500m,MAT,16.58472253
+Australia above 500m,MTCO,11.28000021
+Australia above 500m,MTWA,21.30666695
+Australia above 500m,MAP,1062.166684
+Australia above 500m,CMIA,96.30691982
+Australia Tasmania,MAT,13.00305582
+Australia Tasmania,MTCO,9.063333575
+Australia Tasmania,MTWA,17.2566671
+Australia Tasmania,MAP,717.1000129
+Australia Tasmania,CMIA,95.47761819
+Australia east coast,MAT,22.3802782
+Australia east coast,MTCO,17.97333393
+Australia east coast,MTWA,25.88333371
+Australia east coast,MAP,1187.140019
+Australia east coast,CMIA,95.39425285
+Australia south coast,MAT,13.90638914
+Australia south coast,MTCO,8.660000197
+Australia south coast,MTWA,19.20000044
+Australia south coast,MAP,704.2033457
+Australia south coast,CMIA,96.07061275
+Australia Tasmania,MAT,12.29583352
+Australia Tasmania,MTCO,8.103333537
+Australia Tasmania,MTWA,16.46000029
+Australia Tasmania,MAP,551.1966757
+Australia Tasmania,CMIA,94.72662511
+Australia east coast,MAT,20.03305583
+Australia east coast,MTCO,14.63000018
+Australia east coast,MTWA,24.52000027
+Australia east coast,MAP,1233.350022
+Australia east coast,CMIA,96.2319428
+Australia Tasmania,MAT,13.00305582
+Australia Tasmania,MTCO,9.063333575
+Australia Tasmania,MTWA,17.2566671
+Australia Tasmania,MAP,717.1000129
+Australia Tasmania,CMIA,95.47761819
+Australia east coast,MAT,20.45416694
+Australia east coast,MTCO,15.13333352
+Australia east coast,MTWA,24.836667
+Australia east coast,MAP,1182.573354
+Australia east coast,CMIA,96.03999188
+Australia Tasmania,MAT,13.00305582
+Australia Tasmania,MTCO,9.063333575
+Australia Tasmania,MTWA,17.2566671
+Australia Tasmania,MAP,717.1000129
+Australia Tasmania,CMIA,95.47761819
+Australia east coast,MAT,20.45416694
+Australia east coast,MTCO,15.13333352
+Australia east coast,MTWA,24.836667
+Australia east coast,MAP,1182.573354
+Australia east coast,CMIA,96.03999188
+Australia east coast,MAT,20.45416694
+Australia east coast,MTCO,15.13333352
+Australia east coast,MTWA,24.836667
+Australia east coast,MAP,1182.573354
+Australia east coast,CMIA,96.03999188
+Australia east coast,MAT,20.03305583
+Australia east coast,MTCO,14.63000018
+Australia east coast,MTWA,24.52000027
+Australia east coast,MAP,1233.350022
+Australia east coast,CMIA,96.2319428
