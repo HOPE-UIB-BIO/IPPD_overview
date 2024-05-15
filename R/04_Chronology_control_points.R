@@ -33,7 +33,7 @@ verbose <- FALSE
 # 2. Load data  -----
 #----------------------------------------------------------#
 
-ippd_data_public <-
+data_ippd <-
   readr::read_rds(
     paste0(current_dir, "/Data/Input/ippd_data_public-2021-12-15.rds")
   ) %>%
@@ -42,7 +42,7 @@ ippd_data_public <-
 if (
   isTRUE(verbose)
 ) {
-  dplyr::glimpse(ippd_data_public)
+  dplyr::glimpse(data_ippd)
 }
 
 
@@ -51,7 +51,7 @@ if (
 #----------------------------------------------------------#
 
 data_chron_control <-
-  ippd_data_public %>%
+  data_ippd %>%
   tidyr::drop_na(n_chron_control) %>%
   dplyr::mutate(n_chron_control_binned = n_chron_control) %>%
   get_binned(
@@ -87,7 +87,7 @@ p_chron_con_count_map <-
     line_size = line_size, # [Config]
     map_color_fill = map_color_fill, # [Config]
     map_color_border = map_color_border, # [Config]
-    caption_label = TRUE,
+    caption_label = FALSE,
     legend_n_col = 5
   )
 

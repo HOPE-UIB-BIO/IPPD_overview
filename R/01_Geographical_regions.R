@@ -24,18 +24,23 @@ source(
   here::here("R/00_Config_file.R")
 )
 
+verbose <- FALSE
 
 #----------------------------------------------------------#
 # 2. Load data  -----
 #----------------------------------------------------------#
 
-ippd_data_public <-
+data_ippd <-
   readr::read_rds(
     paste0(current_dir, "/Data/Input/ippd_data_public-2021-12-15.rds")
   ) %>%
   purrr::pluck("data")
 
-dplyr::glimpse(ippd_data_public)
+if (
+  isTRUE(verbose)
+) {
+  dplyr::glimpse(data_ippd)
+}
 
 
 #----------------------------------------------------------#
@@ -43,7 +48,7 @@ dplyr::glimpse(ippd_data_public)
 #----------------------------------------------------------#
 
 data_region <-
-  ippd_data_public %>%
+  data_ippd %>%
   add_region_label()
 
 pal_region <-
@@ -72,6 +77,10 @@ p_region_bar <-
   plot_data_barplot(
     data = data_region,
     var_x = "region_label",
+    y_axis_limits = c(0, 45),
+    x_label_angle = 90,
+    x_label_hjust = 1,
+    x_label_vjust = 0.5,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
     bar_default_color = gray_dark, # [Config]
@@ -148,7 +157,8 @@ p_region_bar_merge <-
       nrow = 1
     ),
     labels = c("A", ""),
-    ncol = 1
+    ncol = 1,
+    rel_heights = c(1, 0.5)
   )
 
 #----------------------------------------------------------#

@@ -34,7 +34,7 @@ bin_value <- 10e3
 # 2. Load data  -----
 #----------------------------------------------------------#
 
-ippd_data_public <-
+data_ippd <-
   readr::read_rds(
     paste0(current_dir, "/Data/Input/ippd_data_public-2021-12-15.rds")
   ) %>%
@@ -43,7 +43,7 @@ ippd_data_public <-
 if (
   isTRUE(verbose)
 ) {
-  dplyr::glimpse(ippd_data_public)
+  dplyr::glimpse(data_ippd)
 }
 
 
@@ -58,7 +58,7 @@ limit_values <- function(x, limit_vec) {
 }
 
 data_age <-
-  ippd_data_public %>%
+  data_ippd %>%
   dplyr::mutate(
     age_young = purrr::map_dbl(
       .x = age_range,

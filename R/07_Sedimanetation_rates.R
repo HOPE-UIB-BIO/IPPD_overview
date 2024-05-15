@@ -26,17 +26,23 @@ source(
 
 bin_value <- 75
 
+verbose <- FALSE
+
 #----------------------------------------------------------#
 # 2. Load data  -----
 #----------------------------------------------------------#
 
-ippd_data_public <-
+data_ippd <-
   readr::read_rds(
     paste0(current_dir, "/Data/Input/ippd_data_public-2021-12-15.rds")
   ) %>%
   purrr::pluck("data")
 
-dplyr::glimpse(ippd_data_public)
+if (
+  isTRUE(verbose)
+) {
+  dplyr::glimpse(data_ippd)
+}
 
 
 #----------------------------------------------------------#
@@ -44,7 +50,7 @@ dplyr::glimpse(ippd_data_public)
 #----------------------------------------------------------#
 
 data_sedimentation <-
-  ippd_data_public %>%
+  data_ippd %>%
   add_region_label() %>%
   dplyr::mutate(
     sedimentation_rate = purrr::map2_dbl(
@@ -117,7 +123,7 @@ p_sedimentation_map <-
     line_size = line_size, # [Config]
     map_color_fill = map_color_fill, # [Config]
     map_color_border = map_color_border, # [Config]
-    caption_label = TRUE
+    caption_label = FALSE
   )
 
 p_sedimentation_violin <-
@@ -137,7 +143,7 @@ p_sedimentation_violin <-
   ) +
   ggplot2::labs(
     x = "",
-    y = "Sedimentation rate (years / 1cm)"
+    y = "Sedimentation rate \n(years / 1cm)"
   )
 
 p_sedimentation_main <-

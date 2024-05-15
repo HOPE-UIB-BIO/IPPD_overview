@@ -24,18 +24,23 @@ source(
   here::here("R/00_Config_file.R")
 )
 
+verbose <- FALSE
 
 #----------------------------------------------------------#
 # 2. Load data  -----
 #----------------------------------------------------------#
 
-ippd_data_public <-
+data_ippd <-
   readr::read_rds(
     paste0(current_dir, "/Data/Input/ippd_data_public-2021-12-15.rds")
   ) %>%
   purrr::pluck("data")
 
-dplyr::glimpse(ippd_data_public)
+if (
+  isTRUE(verbose)
+) {
+  dplyr::glimpse(data_ippd)
+}
 
 
 #----------------------------------------------------------#
@@ -43,7 +48,7 @@ dplyr::glimpse(ippd_data_public)
 #----------------------------------------------------------#
 
 data_pollen_count <-
-  ippd_data_public %>%
+  data_ippd %>%
   add_pollen_count_label()
 
 pal_pollen_count <-
@@ -66,13 +71,17 @@ p_count_map <-
     line_size = line_size, # [Config]
     map_color_fill = map_color_fill, # [Config]
     map_color_border = map_color_border, # [Config]"
-    caption_label = TRUE
+    caption_label = FALSE
   )
 
 p_count_bar <-
   plot_data_barplot(
     data = data_pollen_count,
     var_x = "pollen_percentage_label",
+    y_axis_limits = c(0, 140),
+    x_label_angle = 90,
+    x_label_hjust = 1,
+    x_label_vjust = 0.5,
     custom_palette = pal_pollen_count,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
@@ -149,7 +158,8 @@ p_count_bar_merge <-
       nrow = 1
     ),
     labels = c("A", ""),
-    ncol = 1
+    ncol = 1,
+    rel_heights = c(1, 0.5)
   )
 
 #----------------------------------------------------------#
