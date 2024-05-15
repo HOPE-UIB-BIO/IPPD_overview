@@ -30,7 +30,7 @@ verbose <- FALSE
 # 2. Load data  -----
 #----------------------------------------------------------#
 
-ippd_data_public <-
+data_ippd <-
   readr::read_rds(
     paste0(current_dir, "/Data/Input/ippd_data_public-2021-12-15.rds")
   ) %>%
@@ -39,7 +39,7 @@ ippd_data_public <-
 if (
   isTRUE(verbose)
 ) {
-  dplyr::glimpse(ippd_data_public)
+  dplyr::glimpse(data_ippd)
 }
 
 
@@ -70,7 +70,7 @@ if (
 }
 
 data_ippd_depenv_harmonised <-
-  ippd_data_public %>%
+  data_ippd %>%
   dplyr::mutate(
     depenv_harmonised = dplyr::case_when(
       .default = depositionalenvironment,
@@ -167,13 +167,17 @@ p_dep_env_map <-
     line_size = line_size, # [Config]
     map_color_fill = map_color_fill, # [Config]
     map_color_border = map_color_border, # [Config]"
-    caption_label = TRUE
+    caption_label = FALSE
   )
 
 p_dep_env_bar <-
   plot_data_barplot(
     data = data_ippd_depenv_harmonised,
     var_x = "depenv_harmonised",
+    y_axis_limits = c(0, 90),
+    x_label_angle = 90,
+    x_label_hjust = 1,
+    x_label_vjust = 0.5,
     custom_palette = pal_dep_env,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]
@@ -199,6 +203,10 @@ p_dep_env_bar_full <-
     data = data_ippd_depenv_harmonised,
     var_x = "depositionalenvironment",
     var_fill = "depenv_harmonised",
+    y_axis_limits = c(0, 50),
+    x_label_angle = 90,
+    x_label_hjust = 1,
+    x_label_vjust = 0.5,
     custom_palette = pal_dep_env,
     text_size = text_size, # [Config]
     line_size = line_size, # [Config]

@@ -66,7 +66,9 @@ plot_data_violin_x_y <- function(
     ggplot2::theme(
       text = ggplot2::element_text(size = text_size),
       plot.title = ggplot2::element_text(size = text_size),
-      axis.text.x = ggplot2::element_text(size = text_size, angle = 45, hjust = 1, vjust = 1),
+      axis.text.x = ggplot2::element_text(
+        size = text_size, angle = 90, hjust = 1, vjust = 0.5
+      ),
       line = ggplot2::element_line(linewidth = line_size),
       legend.title = ggplot2::element_blank(),
       legend.position = legend_position

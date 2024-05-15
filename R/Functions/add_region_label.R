@@ -4,7 +4,7 @@ add_region_label <- function(data_source) {
       region_label = dplyr::case_when(
         .default = region,
         region == "Australia_above_500m" ~ "Australia above 500m",
-        region == "New_Zealand_and_Islands_So" ~ "New Zealand and Islands South",
+        region == "New_Zealand_and_Islands_South" ~ "New Zealand and Islands South",
         region == "Australia_tropical" ~ "Australia tropical",
         region == "New_Guinea_highland" ~ "New Guinea highland",
         region == "Australia_Tasmania" ~ "Australia Tasmania",
