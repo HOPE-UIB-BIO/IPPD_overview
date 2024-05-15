@@ -8,7 +8,10 @@ plot_data_barplot <- function(
     bar_alpha = 1,
     text_size = 10,
     line_size = 0.1,
-    x_label_angle = 45,
+    x_label_angle = 0,
+    x_label_hjust = 0.5,
+    x_label_vjust = 0.5,
+    y_axis_limits = NULL,
     plot_number_of_records = TRUE,
     legend_n_col = 3,
     legend_position = "bottom",
@@ -91,8 +94,8 @@ plot_data_barplot <- function(
       axis.text.x = ggplot2::element_text(
         size = text_size,
         angle = x_label_angle,
-        hjust = 1,
-        vjust = 1
+        hjust = x_label_hjust, 
+        vjust = x_label_vjust
       ),
       line = ggplot2::element_line(
         linewidth = line_size
@@ -128,6 +131,16 @@ plot_data_barplot <- function(
         size = text_size / (ggplot2::.pt),
         vjust = 0,
         nudge_y = 0
+      )
+  }
+
+  if (
+    !is.null(y_axis_limits)
+  ) {
+    p_barplot <-
+      p_barplot +
+      ggplot2::coord_cartesian(
+        ylim = c(y_axis_limits)
       )
   }
 
