@@ -36,8 +36,7 @@ verbose <- FALSE
 data_ippd <-
   readr::read_rds(
     paste0(current_dir, "/Data/Input/ippd_data_public-2021-12-15.rds")
-  ) %>%
-  purrr::pluck("data")
+  )
 
 if (
   isTRUE(verbose)
