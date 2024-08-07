@@ -41,6 +41,30 @@ if (
   dplyr::glimpse(data_ippd)
 }
 
+#----------------------------------------------------------#
+# 3. Remove duplicated environements -----
+#----------------------------------------------------------#
+
+data_ippd_depenv_presort <-
+  data_ippd %>%
+  dplyr::mutate(
+    depositionalenvironment = stringr::str_to_sentence(depositionalenvironment)
+  ) %>%
+  dplyr::mutate(
+    depositionalenvironment_clean = dplyr::case_when(
+      .default = depositionalenvironment,
+      depositionalenvironment == "Fen" ~ "Terrestrial, mire, fen",
+      depositionalenvironment == "Lacustrine, drained lake" ~ "Drained lake",
+      depositionalenvironment == "Lacustrine, natural open-water, glacial origin" ~ "Glacial origin lake",
+      depositionalenvironment == "Mire" ~ "Terrestrial, mire",
+      depositionalenvironment == "Natural lake" ~ "Lacustrine, natural open-water",
+      depositionalenvironment == "Natural lake (origin unknown)" ~ "Lacustrine, natural open-water",
+      depositionalenvironment == "Swamp" ~ "Terrestrial, mire, swamp",
+      depositionalenvironment == "Terrestrial, mire (i.e. peatland, >30cm peat)" ~ "Terrestrial, mire",
+      depositionalenvironment == "Terrestrial, mire,swamp (forested wetland or peatland)" ~ "Terrestrial, mire, swamp",
+      is.na(depositionalenvironment) ~ "Unknown"
+    )
+  )
 
 #----------------------------------------------------------#
 # 3. Harmonise environemnts -----
@@ -69,58 +93,50 @@ if (
 }
 
 data_ippd_depenv_harmonised <-
-  data_ippd %>%
+  data_ippd_depenv_presort %>%
   dplyr::mutate(
     depenv_harmonised = dplyr::case_when(
-      .default = depositionalenvironment,
-      depositionalenvironment %in% c(
-        "Valley Mire",
-        "Swamp",
-        "Mire",
-        "terrestrial, mire, bog,\tblanket bog",
-        "terrestrial, mire, bog",
-        "terrestrial, mire (i.e. peatland, >30cm peat)",
-        "terrestrial, mire,swamp (forested wetland or peatland)",
-        "terrestrial, mire, fen",
-        "Fen"
+      .default = depositionalenvironment_clean,
+      depositionalenvironment_clean %in% c(
+        "Valley mire",
+        "Terrestrial, mire, bog,\tblanket bog",
+        "Terrestrial, mire, bog",
+        "Terrestrial, mire",
+        "Terrestrial, mire, swamp",
+        "Terrestrial, mire, fen"
       ) ~ "Wetlands",
-      depositionalenvironment %in% c(
-        "Cirque Lake",
-        "Explosion Crater Lake",
-        "Glacial Origin Lake",
-        "Wind Origin Lake",
-        "Interdunal Lake",
-        "Natural Lake (Origin Unknown)",
-        "Lava Flow Dammed Lake",
-        "Drained Lake",
-        "Natural Lake",
-        "lacustrine, volcanic lake",
-        "lacustrine, natural open-water, tectonic lake",
-        "lacustrine, natural open-water, glacial origin",
-        "lacustrine, drained lake",
-        "Spring Mound",
-        "Small Hollow",
-        "Solution Origin Lake",
-        "lacustrine",
-        "lacustrine, natural open-water"
+      depositionalenvironment_clean %in% c(
+        "Cirque lake",
+        "Explosion crater lake",
+        "Glacial origin lake",
+        "Wind origin lake",
+        "Interdunal lake",
+        "Lava flow dammed lake",
+        "Drained lake",
+        "Lacustrine, volcanic lake",
+        "Lacustrine, natural open-water, tectonic lake",
+        "Spring mound",
+        "Small hollow",
+        "Solution origin lake",
+        "Lacustrine",
+        "Lacustrine, natural open-water"
       ) ~ "Lacustrine",
-      depositionalenvironment %in% c(
-        "Archaeological", "terrestrial, soil, buried soil",
-        "terrestrial, cave sediments",
-        "terrestrial"
+      depositionalenvironment_clean %in% c(
+        "Archaeological",
+        "Terrestrial, soil, buried soil",
+        "Terrestrial, cave sediments",
+        "Terrestrial"
       ) ~ "Terrestrial",
-      depositionalenvironment %in% c(
-        "Fluvial", "Moraine Dammed Lake",
-        "fluvial"
+      depositionalenvironment_clean %in% c(
+        "Fluvial",
+        "Moraine dammed lake"
       ) ~ "Fluvial",
-      depositionalenvironment %in% c(
-        "Lacustrine Beach",
-        "coastal, estuarine",
-        "lacustrine, playa",
-        "coastal"
-      ) ~ "Coastal",
-      depositionalenvironment == "marine" ~ "Marine",
-      is.na(depositionalenvironment) ~ "Unknown"
+      depositionalenvironment_clean %in% c(
+        "Lacustrine beach",
+        "Coastal, estuarine",
+        "Lacustrine, playa",
+        "Coastal"
+      ) ~ "Coastal"
     )
   ) %>%
   dplyr::mutate(
@@ -132,7 +148,7 @@ data_ippd_depenv_harmonised <-
 
 data_ippd_depenv_harmonised_overview <-
   data_ippd_depenv_harmonised %>%
-  dplyr::distinct(depositionalenvironment, depenv_harmonised)
+  dplyr::distinct(depositionalenvironment_clean, depenv_harmonised)
 
 assertthat::assert_that(
   data_ippd_depenv_harmonised_overview %>%
@@ -200,7 +216,7 @@ p_dep_env_main <-
 p_dep_env_bar_full <-
   plot_data_barplot(
     data = data_ippd_depenv_harmonised,
-    var_x = "depositionalenvironment",
+    var_x = "depositionalenvironment_clean",
     var_fill = "depenv_harmonised",
     y_axis_limits = c(0, 50),
     x_label_angle = 90,
@@ -306,7 +322,7 @@ purrr::walk(
 )
 
 data_ippd_depenv_harmonised_overview %>%
-  dplyr::arrange(depenv_harmonised, depositionalenvironment) %>%
+  dplyr::arrange(depenv_harmonised, depositionalenvironment_clean) %>%
   rlang::set_names(
     nm = c(
       "Original depositional environment",
