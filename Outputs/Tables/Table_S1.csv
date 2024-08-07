@@ -1,44 +1,34 @@
 Original depositional environment,Depositional environment - broader grouping
-Lacustrine Beach,Coastal
-coastal,Coastal
-"coastal, estuarine",Coastal
-"lacustrine, playa",Coastal
+Coastal,Coastal
+"Coastal, estuarine",Coastal
+Lacustrine beach,Coastal
+"Lacustrine, playa",Coastal
 Fluvial,Fluvial
-Moraine Dammed Lake,Fluvial
-fluvial,Fluvial
+Moraine dammed lake,Fluvial
 Glacial,Glacial
-Cirque Lake,Lacustrine
-Drained Lake,Lacustrine
-Explosion Crater Lake,Lacustrine
-Glacial Origin Lake,Lacustrine
-Interdunal Lake,Lacustrine
+Cirque lake,Lacustrine
+Drained lake,Lacustrine
+Explosion crater lake,Lacustrine
+Glacial origin lake,Lacustrine
+Interdunal lake,Lacustrine
 Lacustrine,Lacustrine
-Lava Flow Dammed Lake,Lacustrine
-Natural Lake,Lacustrine
-Natural Lake (Origin Unknown),Lacustrine
-Small Hollow,Lacustrine
-Solution Origin Lake,Lacustrine
-Spring Mound,Lacustrine
-Wind Origin Lake,Lacustrine
-lacustrine,Lacustrine
-"lacustrine, drained lake",Lacustrine
-"lacustrine, natural open-water",Lacustrine
-"lacustrine, natural open-water, glacial origin",Lacustrine
-"lacustrine, natural open-water, tectonic lake",Lacustrine
-"lacustrine, volcanic lake",Lacustrine
-marine,Marine
+"Lacustrine, natural open-water",Lacustrine
+"Lacustrine, natural open-water, tectonic lake",Lacustrine
+"Lacustrine, volcanic lake",Lacustrine
+Lava flow dammed lake,Lacustrine
+Small hollow,Lacustrine
+Solution origin lake,Lacustrine
+Spring mound,Lacustrine
+Wind origin lake,Lacustrine
+Marine,Marine
 Archaeological,Terrestrial
-terrestrial,Terrestrial
-"terrestrial, cave sediments",Terrestrial
-"terrestrial, soil, buried soil",Terrestrial
-Fen,Wetlands
-Mire,Wetlands
-Swamp,Wetlands
-Valley Mire,Wetlands
-"terrestrial, mire (i.e. peatland, >30cm peat)",Wetlands
-"terrestrial, mire, bog",Wetlands
-"terrestrial, mire, bog,	blanket bog",Wetlands
-"terrestrial, mire, fen",Wetlands
-"terrestrial, mire,swamp (forested wetland or peatland)",Wetlands
+Terrestrial,Terrestrial
+"Terrestrial, cave sediments",Terrestrial
+"Terrestrial, soil, buried soil",Terrestrial
+"Terrestrial, mire",Wetlands
+"Terrestrial, mire, bog",Wetlands
+"Terrestrial, mire, bog,	blanket bog",Wetlands
+"Terrestrial, mire, fen",Wetlands
+"Terrestrial, mire, swamp",Wetlands
+Valley mire,Wetlands
 Unknown,Unknown
-NA,Unknown
