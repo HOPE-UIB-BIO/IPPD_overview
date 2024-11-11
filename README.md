@@ -2,6 +2,10 @@
 
 Developed by Ondrej Mottl
 
+# Reference
+
+This code is currently supporting the publication "The Indo–Pacific Pollen Database – a Neotoma constituent database" ([DOI: 10.5194/cp-20-2473-2024](https://doi.org/10.5194/cp-20-2473-2024).
+
 ## General info
 
 It is a recommended structure for R projects which consists of modular codes with individual functions and purposes.
